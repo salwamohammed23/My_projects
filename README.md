@@ -39,3 +39,5 @@ This project demonstrates the use of Decision Trees and Random Forests to predic
 
 This project focuses on predicting house rents using two machine learning models: **Linear Regression** and **Support Vector Regression (SVR)**. The dataset used is a CSV file containing various features related to house rentals.
 
+# Drug Classification Using Decision Trees
+This project aims to classify drugs based on patient data using a Decision Tree Classifier. The dataset includes various features such as age, sex, blood pressure, cholesterol levels, and sodium to potassium ratio. The goal is to predict which drug a patient should be prescribed based on these features.
