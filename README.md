@@ -9,6 +9,9 @@ This application provides a user-friendly command-line interface for loading, pr
 
 This project provides a streamlined process for **Data Cleaning**, **Visualization**, and **Statistical Analysis** of a dataset, with a focus on improving data quality and extracting valuable insights through geographic and exploratory visualizations, as well as statistical summaries.
 
+#Diabetes Prediction Using Deep Learning
+
+This project aims to predict the presence of diabetes in patients using a deep learning model. The dataset used contains several medical attributes related to diabetes diagnosis, and the model is built using PyTorch.
 # Smart_Code_Evaluator
 this tool would be quite useful for peer-reviewing code or as part of a learning platform where users receive instant feedback on their coding assignments.
 
