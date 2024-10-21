@@ -11,7 +11,7 @@ This project aims to classify drugs based on patient data using a Decision Tree 
 - [Usage](#usage)
 - [Model Evaluation](#model-evaluation)
 - [Results](#results)
-- [License](#license)
+
 
 ## Project Overview
 
