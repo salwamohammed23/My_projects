@@ -27,3 +27,6 @@ This project applies Support Vector Machine (SVM) classifiers to classify pulsar
 # Abalone Age Prediction with Ridge Regression
 
 This project focuses on predicting the age of abalone based on its physical attributes using a machine learning pipeline with **Ridge Regression**. The dataset includes various physical measurements of abalones, such as length, diameter, and weight, along with their corresponding age. The goal is to predict the abalone's age based on these features.
+
+# House Price Prediction using Decision Trees and Random Forests
+This project demonstrates the use of Decision Trees and Random Forests to predict house sale prices using the Ames housing dataset. The goal is to train a model that accurately predicts house prices based on various features such as lot area, year built, number of rooms, and more.
