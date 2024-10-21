@@ -1,6 +1,4 @@
-Your `Streamlit` app is designed to generate blog content based on a user-provided keyword, and it also generates accompanying images using Hugging Face’s API. Here's an explanation of the core elements and how it works:
-
-### Breakdown of the Application
+# Blog_and_Image_Generator project
 
 1. **Streamlit Setup**:
    - The app uses `streamlit` to create a simple interface for generating a blog post, divided into an introduction, body, and conclusion. It also generates relevant images to go along with the text.
