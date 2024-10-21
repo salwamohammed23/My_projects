@@ -22,3 +22,8 @@ The purpose of this code is to create a Streamlit web dashboard for visualizing 
 # Pulsar Star Classification using SVM
 
 This project applies Support Vector Machine (SVM) classifiers to classify pulsar stars based on their physical characteristics. The dataset used for this classification is the `pulsar_data.csv`, containing 17898 instances and 9 features, including the target variable `target_class`.
+
+
+# Abalone Age Prediction with Ridge Regression
+
+This project focuses on predicting the age of abalone based on its physical attributes using a machine learning pipeline with **Ridge Regression**. The dataset includes various physical measurements of abalones, such as length, diameter, and weight, along with their corresponding age. The goal is to predict the abalone's age based on these features.
