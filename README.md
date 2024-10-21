@@ -45,3 +45,10 @@ This project aims to classify drugs based on patient data using a Decision Tree 
 # Diabetes Prediction Model
 
 This project involves building a deep learning model to predict diabetes using a dataset containing various health metrics. The model is designed to help in early diagnosis and treatment planning for diabetes.
+
+
+# Earthquake Data Analysis
+
+This project involves analyzing earthquake data to predict earthquake magnitudes using Support Vector Regression (SVR). The dataset contains historical earthquake records with features such as latitude, longitude, depth, and datetime.
+
+
