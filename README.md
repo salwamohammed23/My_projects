@@ -32,9 +32,9 @@ This project applies Support Vector Machine (SVM) classifiers to classify pulsar
 This project focuses on predicting the age of abalone based on its physical attributes using a machine learning pipeline with **Ridge Regression**. The dataset includes various physical measurements of abalones, such as length, diameter, and weight, along with their corresponding age. The goal is to predict the abalone's age based on these features.
 
 # House Price Predictionusing
-##Decision Trees and Random Forests
+- [Decision Trees and Random Forests]
 This project demonstrates the use of Decision Trees and Random Forests to predict house sale prices using the Ames housing dataset. The goal is to train a model that accurately predicts house prices based on various features such as lot area, year built, number of rooms, and more.
-##Linear Regression, Logistic Regression, and Support Vector Regression (SVR)
+- [Linear Regression, Logistic Regression, and Support Vector Regression (SVR)]
 This project aims to predict house prices based on various features using machine learning techniques. It implements three regression models: Linear Regression, Logistic Regression, and Support Vector Regression (SVR). The dataset used is House_Price.csv, which contains features such as crime rate, residential area, air quality, number of rooms, age, and various distances to amenities.
 
 # House Rent Prediction 
