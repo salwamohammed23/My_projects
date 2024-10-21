@@ -11,7 +11,7 @@ This project involves analyzing earthquake data to predict earthquake magnitudes
 - [Modeling](#modeling)
 - [Results](#results)
 - [Contributing](#contributing)
-- [License](#license)
+
 
 ## Installation
 
