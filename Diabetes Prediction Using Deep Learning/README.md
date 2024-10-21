@@ -1,4 +1,4 @@
-```markdown
+
 # Diabetes Prediction Using Deep Learning
 
 ## Overview
