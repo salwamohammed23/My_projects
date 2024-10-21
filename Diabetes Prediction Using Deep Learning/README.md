@@ -1,5 +1,3 @@
-Here's a `README.md` file that outlines your project. You can adjust any section as needed.
-
 ```markdown
 # Diabetes Prediction Using Deep Learning
 
