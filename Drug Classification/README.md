@@ -61,6 +61,6 @@ The Decision Tree Classifier is evaluated using accuracy and confusion matrix me
 
 The model achieved a training accuracy of **100%** and a testing accuracy of **100%**. The feature importance indicated that the sodium to potassium ratio has the highest impact on drug classification.
 
-![Confusion Matrix](confusion_matrix.png)
+
 
 
