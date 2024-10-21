@@ -30,3 +30,9 @@ This project focuses on predicting the age of abalone based on its physical attr
 
 # House Price Prediction using Decision Trees and Random Forests
 This project demonstrates the use of Decision Trees and Random Forests to predict house sale prices using the Ames housing dataset. The goal is to train a model that accurately predicts house prices based on various features such as lot area, year built, number of rooms, and more.
+
+
+# House Rent Prediction 
+
+This project focuses on predicting house rents using two machine learning models: **Linear Regression** and **Support Vector Regression (SVR)**. The dataset used is a CSV file containing various features related to house rentals.
+
