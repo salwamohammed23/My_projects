@@ -1,7 +1,8 @@
 The code you've shared is for creating a **dashboard** using `Streamlit` to visualize and analyze user-related data such as registrations, subscriptions, course completions, coupon usage, evaluations, and user statistics. 
 
-# Note: All the data in this dashboard has been extracted from an SQL database
-# and converted into CSV files for analysis and display purposes.
+# Note: All the data in this dashboard has been extracted from an SQL database and converted into CSV files for analysis and display purposes.
+
+
 ### Explanation of the Code Components:
 
 1. **Data Loading and Removing Duplicates**:
