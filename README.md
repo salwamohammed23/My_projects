@@ -51,4 +51,6 @@ This project involves building a deep learning model to predict diabetes using a
 
 This project involves analyzing earthquake data to predict earthquake magnitudes using Support Vector Regression (SVR). The dataset contains historical earthquake records with features such as latitude, longitude, depth, and datetime.
 
+# KMeans Clustering Project
 
+This project demonstrates how to apply the KMeans clustering algorithm using the scikit-learn library on a synthetic dataset. The goal is to group similar data points into clusters based on their feature values.
