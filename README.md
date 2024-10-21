@@ -41,3 +41,7 @@ This project focuses on predicting house rents using two machine learning models
 
 # Drug Classification Using Decision Trees
 This project aims to classify drugs based on patient data using a Decision Tree Classifier. The dataset includes various features such as age, sex, blood pressure, cholesterol levels, and sodium to potassium ratio. The goal is to predict which drug a patient should be prescribed based on these features.
+
+# Diabetes Prediction Model
+
+This project involves building a deep learning model to predict diabetes using a dataset containing various health metrics. The model is designed to help in early diagnosis and treatment planning for diabetes.
