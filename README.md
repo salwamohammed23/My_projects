@@ -14,3 +14,6 @@ this tool would be quite useful for peer-reviewing code or as part of a learning
 
 # Blog_and_Image_Generator project
  The app uses `streamlit` to create a simple interface for generating a blog post, divided into an introduction, body, and conclusion. It also generates relevant images to go along with the text.
+
+# Dashourd
+The purpose of this code is to create a Streamlit web dashboard for visualizing various types of data related to user registrations, subscriptions, course completions, capstone evaluations, coupons, and user statistics. The app provides interactive visualizations and tables to explore data across different time intervals (daily, weekly, monthly, yearly) and user-related metrics.
