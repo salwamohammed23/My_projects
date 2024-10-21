@@ -17,3 +17,8 @@ this tool would be quite useful for peer-reviewing code or as part of a learning
 
 # Dashourd
 The purpose of this code is to create a Streamlit web dashboard for visualizing various types of data related to user registrations, subscriptions, course completions, capstone evaluations, coupons, and user statistics. The app provides interactive visualizations and tables to explore data across different time intervals (daily, weekly, monthly, yearly) and user-related metrics.
+
+
+# Pulsar Star Classification using SVM
+
+This project applies Support Vector Machine (SVM) classifiers to classify pulsar stars based on their physical characteristics. The dataset used for this classification is the `pulsar_data.csv`, containing 17898 instances and 9 features, including the target variable `target_class`.
