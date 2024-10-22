@@ -26,7 +26,7 @@ The purpose of this code is to create a Streamlit web dashboard for visualizing 
 
 This project applies Support Vector Machine (SVM) classifiers to classify pulsar stars based on their physical characteristics. The dataset used for this classification is the `pulsar_data.csv`, containing 17898 instances and 9 features, including the target variable `target_class`.
 
-#Flower Classification using Transfer Learning with MobileNetV2
+# Flower Classification using Transfer Learning with MobileNetV2
 This project demonstrates the use of transfer learning to classify flower images into five categories: daisy, dandelion, roses, sunflowers, and tulips. The model is built using TensorFlow and employs a pre-trained MobileNetV2 model to extract features, which are then fine-tuned for the classification task. The dataset is sourced from TensorFlow Flower Photos.
 
 Table of Contents
