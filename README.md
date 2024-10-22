@@ -60,3 +60,7 @@ This project involves analyzing earthquake data to predict earthquake magnitudes
 # KMeans Clustering Project
 
 This project demonstrates how to apply the KMeans clustering algorithm using the scikit-learn library on a synthetic dataset. The goal is to group similar data points into clusters based on their feature values.
+
+
+# Customer Conversion Prediction Model
+This project builds a neural network model to predict customer conversion based on a dataset from a bank marketing campaign. The dataset contains various features such as customer demographics, past interactions with the bank, and economic indicators. The target variable is whether or not the customer subscribed to a term deposit (y), which is binary-encoded for training purposes.
