@@ -15,6 +15,9 @@ This project aims to predict the presence of diabetes in patients using a deep l
 # Smart_Code_Evaluator
 this tool would be quite useful for peer-reviewing code or as part of a learning platform where users receive instant feedback on their coding assignments.
 
+#ImageResizer Pro
+is a Streamlit-based tool for resizing images with ease. It provides a simple interface where users can upload an image, specify new dimensions, and view the resized output instantly. This tool is ideal for quick image resizing tasks for web use, digital design, or personal use.
+
 # Blog_and_Image_Generator project
  The app uses `streamlit` to create a simple interface for generating a blog post, divided into an introduction, body, and conclusion. It also generates relevant images to go along with the text.
 
@@ -29,7 +32,7 @@ This project applies Support Vector Machine (SVM) classifiers to classify pulsar
 # Flower Classification using Transfer Learning with MobileNetV2
 This project demonstrates the use of transfer learning to classify flower images into five categories: daisy, dandelion, roses, sunflowers, and tulips. The model is built using TensorFlow and employs a pre-trained MobileNetV2 model to extract features, which are then fine-tuned for the classification task. The dataset is sourced from TensorFlow Flower Photos.
 
-Table of Contents
+
 
 # Abalone Age Prediction with Ridge Regression
 
