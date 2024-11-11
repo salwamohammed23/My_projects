@@ -1,4 +1,4 @@
-```markdown
+
 # ImageResizer Pro
 
 **ImageResizer Pro** is a Streamlit-based tool for resizing images with ease. It provides a simple interface where users can upload an image, specify new dimensions, and view the resized output instantly. This tool is ideal for quick image resizing tasks for web use, digital design, or personal use.
