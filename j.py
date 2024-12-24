@@ -2,13 +2,15 @@ import streamlit as st
 import cv2
 import numpy as np
 from PIL import Image
+import io
 
 # عنوان التطبيق
 st.title("تطبيق تصحيح جاما (Gamma Correction)")
 
 # وصف التطبيق
 st.write("""
-قم بتحميل صورة واستخدم مؤشر التحكم لاختيار قيمة جاما ومعاينة النتائج.
+قم بتحميل صورة واستخدم مؤشر التحكم لاختيار قيمة جاما ومعاينة النتائج، 
+ثم قم بتحميل الصورة المعدلة.
 """)
 
 # رفع الصورة
@@ -35,3 +37,17 @@ if uploaded_file is not None:
     # عرض الصورة المحولة
     st.subheader("الصورة بعد تصحيح جاما:")
     st.image(gamma_corrected, caption=f"Gamma = {gamma}", use_column_width=True)
+
+    # تحويل الصورة المعدلة إلى صيغة يمكن تحميلها (BytesIO)
+    img_pil = Image.fromarray(gamma_corrected)
+    img_byte_arr = io.BytesIO()
+    img_pil.save(img_byte_arr, format='PNG')
+    img_byte_arr.seek(0)
+
+    # زر تحميل الصورة المعدلة
+    st.download_button(
+        label="تحميل الصورة المعدلة",
+        data=img_byte_arr,
+        file_name="gamma_corrected_image.png",
+        mime="image/png"
+    )
