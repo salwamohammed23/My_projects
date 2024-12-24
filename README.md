@@ -15,6 +15,15 @@ This project aims to predict the presence of diabetes in patients using a deep l
 
 # Smart_Code_Evaluator
 this tool would be quite useful for peer-reviewing code or as part of a learning platform where users receive instant feedback on their coding assignments.
+# Illumination Control for Images
+
+This project allows you to upload an image and apply gamma correction to it using an interactive **Streamlit** user interface. You can adjust the gamma value and see its effect on the image in real-time, and also download the modified image.
+
+** Access the App **
+
+You can also access the live app hosted on Streamlit using the following link:
+
+[Streamlit App]([your-streamlit-link-here](https://myprojects-misvahlt3gdndgsdwt9tsk.streamlit.app/))
 
 # ImageResizer Pro
 is a Streamlit-based tool for resizing images with ease. It provides a simple interface where users can upload an image, specify new dimensions, and view the resized output instantly. This tool is ideal for quick image resizing tasks for web use, digital design, or personal use.
