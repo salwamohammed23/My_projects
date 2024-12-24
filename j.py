@@ -3,6 +3,16 @@ import cv2
 import numpy as np
 from PIL import Image
 import io
+# Add custom CSS to hide the footer, header
+hide_st_style = """
+<style>
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+header {visibility: hidden;}
+</style>
+"""
+st.markdown(hide_st_style, unsafe_allow_html=True)
+# إعداد واجهة المستخدم
 
 # عنوان التطبيق
 st.title("تطبيق تصحيح جاما (Gamma Correction)")
