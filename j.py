@@ -14,49 +14,50 @@ header {visibility: hidden;}
 st.markdown(hide_st_style, unsafe_allow_html=True)
 # إعداد واجهة المستخدم
 
-# عنوان التطبيق
-st.title("تطبيق تصحيح جاما (Gamma Correction)")
 
-# وصف التطبيق
+# App title
+st.title("Gamma Correction App")
+
+# App description
 st.write("""
-قم بتحميل صورة واستخدم مؤشر التحكم لاختيار قيمة جاما ومعاينة النتائج، 
-ثم قم بتحميل الصورة المعدلة.
+Upload an image and use the control slider to select a gamma value and preview the results, 
+then download the modified image.
 """)
 
-# رفع الصورة
-uploaded_file = st.file_uploader("قم برفع صورة", type=["jpg", "jpeg", "png"])
+# Upload image
+uploaded_file = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
 
 if uploaded_file is not None:
-    # قراءة الصورة باستخدام PIL
+    # Read the image using PIL
     image = Image.open(uploaded_file)
-    img_rgb = np.array(image)  # تحويل الصورة إلى مصفوفة NumPy
+    img_rgb = np.array(image)  # Convert the image to a NumPy array
 
-    # عرض الصورة الأصلية
-    st.subheader("الصورة الأصلية:")
-    st.image(img_rgb, caption="الصورة الأصلية", use_container_width=True)
+    # Display the original image
+    st.subheader("Original Image:")
+    st.image(img_rgb, caption="Original Image", use_container_width=True)
 
-    # شريط تمرير لاختيار قيمة جاما
-    gamma = st.slider("اختر قيمة جاما", min_value=0.1, max_value=3.0, value=1.0, step=0.1)
+    # Slider to select the gamma value
+    gamma = st.slider("Select Gamma Value", min_value=0.1, max_value=3.0, value=1.0, step=0.1)
 
-    # تطبيق تصحيح جاما
-    c = 1.0  # ثابت التحكم
-    normalized_img = img_rgb / 255.0  # تطبيع الصورة إلى النطاق [0, 1]
-    gamma_corrected = c * (normalized_img ** gamma)  # تطبيق تصحيح جاما
-    gamma_corrected = np.uint8(np.clip(gamma_corrected * 255, 0, 255))  # إعادة القيم إلى النطاق [0, 255]
+    # Apply gamma correction
+    c = 1.0  # Control constant
+    normalized_img = img_rgb / 255.0  # Normalize the image to the range [0, 1]
+    gamma_corrected = c * (normalized_img ** gamma)  # Apply gamma correction
+    gamma_corrected = np.uint8(np.clip(gamma_corrected * 255, 0, 255))  # Rescale back to [0, 255]
 
-    # عرض الصورة المحولة
-    st.subheader("الصورة بعد تصحيح جاما:")
+    # Display the gamma-corrected image
+    st.subheader("Image After Gamma Correction:")
     st.image(gamma_corrected, caption=f"Gamma = {gamma}", use_container_width=True)
 
-    # تحويل الصورة المعدلة إلى صيغة يمكن تحميلها (BytesIO)
+    # Convert the modified image to a format that can be downloaded (BytesIO)
     img_pil = Image.fromarray(gamma_corrected)
     img_byte_arr = io.BytesIO()
     img_pil.save(img_byte_arr, format='PNG')
     img_byte_arr.seek(0)
 
-    # زر تحميل الصورة المعدلة
+    # Download button for the modified image
     st.download_button(
-        label="تحميل الصورة المعدلة",
+        label="Download Modified Image",
         data=img_byte_arr,
         file_name="gamma_corrected_image.png",
         mime="image/png"
