@@ -23,7 +23,7 @@ if uploaded_file is not None:
 
     # عرض الصورة الأصلية
     st.subheader("الصورة الأصلية:")
-    st.image(img_rgb, caption="الصورة الأصلية", use_column_width=True)
+    st.image(img_rgb, caption="الصورة الأصلية", use_container_width=True)
 
     # شريط تمرير لاختيار قيمة جاما
     gamma = st.slider("اختر قيمة جاما", min_value=0.1, max_value=3.0, value=1.0, step=0.1)
@@ -36,7 +36,7 @@ if uploaded_file is not None:
 
     # عرض الصورة المحولة
     st.subheader("الصورة بعد تصحيح جاما:")
-    st.image(gamma_corrected, caption=f"Gamma = {gamma}", use_column_width=True)
+    st.image(gamma_corrected, caption=f"Gamma = {gamma}", use_container_width=True)
 
     # تحويل الصورة المعدلة إلى صيغة يمكن تحميلها (BytesIO)
     img_pil = Image.fromarray(gamma_corrected)
