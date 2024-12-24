@@ -1,6 +1,6 @@
-إليك ترجمة محتوى ملف `README.md` إلى الإنجليزية:
 
 
+### `README.md`
 
 ```markdown
 # Gamma Correction for Images
@@ -84,15 +84,16 @@ pip install -r requirements.txt
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
+
+## Access the App
+
+You can also access the live app hosted on Streamlit using the following link:
+
+[Streamlit App](https://myprojects-misvahlt3gdndgsdwt9tsk.streamlit.app/https://share.streamlit.io/your-username/your-repository-name/main)
 ```
 
-### Explanation of the Translation:
-1. **Project Description**: Briefly describes what the project does.
-2. **How to Use**: Provides instructions on setting up the environment and running the app.
-3. **Requirements**: Lists the libraries and dependencies required for the project.
-4. **How to Run the App**: Explains how to run the app locally using **Streamlit**.
-5. **Example**: Provides a section for before-and-after images of the gamma correction process.
-6. **Contributors**: Space for listing contributors or your own name.
-7. **License**: A section for the project license (e.g., MIT License).
+### التغييرات التي تمت:
+- أضفنا قسم **Access the App** مع الجملة التي توضح كيفية الوصول إلى التطبيق المستضاف على **Streamlit**.
+- استبدلنا الرابط `your-username/your-repository-name` بالرابط الذي يجب أن تستخدمه بعد نشر التطبيق على **Streamlit Sharing**.
 
-If you need any further adjustments or additional details, feel free to ask! 😊
+هل تحتاج إلى أي تعديلات إضافية؟ 😊
