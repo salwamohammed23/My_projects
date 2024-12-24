@@ -89,6 +89,6 @@ This project is licensed under the [MIT License](LICENSE).
 
 You can also access the live app hosted on Streamlit using the following link:
 
-[Streamlit App](https://myprojects-misvahlt3gdndgsdwt9tsk.streamlit.app/https://share.streamlit.io/your-username/your-repository-name/main)
+[Streamlit App](https://myprojects-misvahlt3gdndgsdwt9tsk.streamlit.app/)
 ```
 
