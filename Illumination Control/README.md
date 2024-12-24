@@ -92,8 +92,3 @@ You can also access the live app hosted on Streamlit using the following link:
 [Streamlit App](https://myprojects-misvahlt3gdndgsdwt9tsk.streamlit.app/https://share.streamlit.io/your-username/your-repository-name/main)
 ```
 
-### التغييرات التي تمت:
-- أضفنا قسم **Access the App** مع الجملة التي توضح كيفية الوصول إلى التطبيق المستضاف على **Streamlit**.
-- استبدلنا الرابط `your-username/your-repository-name` بالرابط الذي يجب أن تستخدمه بعد نشر التطبيق على **Streamlit Sharing**.
-
-هل تحتاج إلى أي تعديلات إضافية؟ 😊
