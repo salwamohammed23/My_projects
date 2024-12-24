@@ -16,7 +16,7 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 
 
 # App title
-st.title("Gamma Correction App")
+st.title("Illumination Control App")
 
 # App description
 st.write("""
