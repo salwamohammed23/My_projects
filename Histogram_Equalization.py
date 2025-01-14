@@ -2,7 +2,6 @@ import cv2
 import numpy as np
 import streamlit as st
 from PIL import Image
-import matplotlib.pyplot as plt
 
 # دالة لتطبيق Histogram Equalization على صورة ملونة
 def histogram_equalization_color(image):
@@ -35,6 +34,10 @@ if uploaded_file is not None:
     image = Image.open(uploaded_file)
     img_array = np.array(image)
 
+    # عرض الصورة الأصلية
+    st.subheader("Original Image")
+    st.image(image, caption="Original Image", use_column_width=True)
+
     # التحقق من أن الصورة ملونة
     if len(img_array.shape) == 3 and img_array.shape[2] == 3:
         # تحويل الصورة من PIL إلى تنسيق OpenCV (RGB)
@@ -43,10 +46,7 @@ if uploaded_file is not None:
         # تطبيق Histogram Equalization
         equalized_img_rgb = histogram_equalization_color(img_rgb)
 
-        # عرض الصور الأصلية والمعالجة
-        st.subheader("Original Image")
-        st.image(img_array, caption="Original Image", use_column_width=True)
-
+        # عرض الصورة بعد التحسين
         st.subheader("Image After Histogram Equalization")
         # تحويل الصورة المعالجة إلى تنسيق مناسب للعرض
         equalized_img_display = cv2.cvtColor(equalized_img_rgb, cv2.COLOR_BGR2RGB)
