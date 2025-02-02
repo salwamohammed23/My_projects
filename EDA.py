@@ -13,7 +13,7 @@ def load_data(filepath):
     df = pd.read_csv(filepath)
     return df
 
-df = load_data("first inten project.csv")
+df = load_data("/content/first_inten_project.csv")
 
 # معالجة البيانات
 @st.cache_data
@@ -38,25 +38,19 @@ def preprocess_data(df):
 
 df = preprocess_data(df)
 
-# تقسيم الصفحة
+# تقسيم الصفحة إلى Sidebar
 st.sidebar.title("🔍 استكشاف البيانات")
-option = st.sidebar.selectbox("اختر القسم", ["عرض البيانات", "تحليل إحصائي", "الرسوم البيانية", "تحليل الارتباط"])
+st.sidebar.write("## 🗂️ عرض البيانات الأساسية")
+st.sidebar.dataframe(df.head())
 
-if option == "عرض البيانات":
-    st.write("## 🗂️ عرض البيانات الأساسية")
-    st.dataframe(df.head())
+st.sidebar.write("## 📊 التحليل الإحصائي")
+st.sidebar.write(df.describe())
 
-elif option == "تحليل إحصائي":
-    st.write("## 📊 التحليل الإحصائي")
-    st.write(df.describe())
+st.sidebar.write("## 📈 الرسوم البيانية التفاعلية")
+fig = px.scatter_3d(df, x='lead time', y='number of adults', z='average price ', color='booking status')
+st.sidebar.plotly_chart(fig)
 
-elif option == "الرسوم البيانية":
-    st.write("## 📈 الرسوم البيانية التفاعلية")
-    fig = px.scatter_3d(df, x='lead time', y='number of adults', z='average price ', color='booking status')
-    st.plotly_chart(fig)
-
-elif option == "تحليل الارتباط":
-    st.write("## 🔗 تحليل الارتباطات")
-    fig, ax = plt.subplots(figsize=(10, 6))
-    sns.heatmap(df.corr(), annot=True, cmap="coolwarm", linewidths=0.5, ax=ax)
-    st.pyplot(fig)
+st.sidebar.write("## 🔗 تحليل الارتباطات")
+fig, ax = plt.subplots(figsize=(10, 6))
+sns.heatmap(df.corr(), annot=True, cmap="coolwarm", linewidths=0.5, ax=ax)
+st.sidebar.pyplot(fig)
