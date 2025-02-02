@@ -9,9 +9,11 @@ from sklearn.preprocessing import LabelEncoder
 
 # Function to load data
 @st.cache_data
+def load_data(filepath):
+    df = pd.read_csv(filepath)
+    return df
 
-
-df = df = pd.read_csv("first inten project.csv")
+df = load_data("first inten project.csv")
 
 if df is not None:
     # Function to preprocess data
