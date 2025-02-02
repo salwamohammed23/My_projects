@@ -57,27 +57,33 @@ if df is not None:
     # Sidebar for user inputs
     st.sidebar.title("📊 Visualization Options")
 
-    # Add checkboxes for each visualization
-    show_summary = st.sidebar.checkbox("Show Dataset Summary", value=True)
-    show_adults_vs_price = st.sidebar.checkbox("Show Number of Adults vs. Average Price")
-    show_lead_time_vs_price = st.sidebar.checkbox("Show Lead Time vs. Average Price")
-    show_special_requests_vs_price = st.sidebar.checkbox("Show Special Requests vs. Average Price")
-    show_3d_scatter = st.sidebar.checkbox("Show 3D Scatter Plot")
-    show_boxplots = st.sidebar.checkbox("Show Boxplots for Outlier Detection")
-    show_distributions = st.sidebar.checkbox("Show Distributions of Numerical Columns")
-    show_correlation = st.sidebar.checkbox("Show Feature Correlation Heatmap")
+    # Add a radio button to select one visualization
+    visualization_option = st.sidebar.radio(
+        "Choose a Visualization:",
+        options=[
+            "Dataset Summary",
+            "Number of Adults vs. Average Price",
+            "Lead Time vs. Average Price",
+            "Special Requests vs. Average Price",
+            "3D Scatter Plot",
+            "Boxplots for Outlier Detection",
+            "Distributions of Numerical Columns",
+            "Feature Correlation Heatmap"
+        ]
+    )
 
     # Main content
     st.title("Hotel Booking Data Analysis")
 
-    if show_summary:
+    # Display the selected visualization
+    if visualization_option == "Dataset Summary":
         st.write("### 📌 Dataset Info")
         st.write(df.info())
 
         st.write("### 📌 Summary Statistics")
         st.write(df.describe())
 
-    if show_adults_vs_price:
+    elif visualization_option == "Number of Adults vs. Average Price":
         st.write("### Number of Adults vs. Average Price")
         fig, ax = plt.subplots(figsize=(10, 6))
         sns.scatterplot(x=df['number of adults'], y=df['average price '], hue=df['booking status'], ax=ax)
@@ -86,7 +92,7 @@ if df is not None:
         ax.set_ylabel("Average Price")
         st.pyplot(fig)
 
-    if show_lead_time_vs_price:
+    elif visualization_option == "Lead Time vs. Average Price":
         st.write("### Lead Time vs. Average Price")
         fig, ax = plt.subplots(figsize=(10, 6))
         sns.scatterplot(x=df['lead time'], y=df['average price '], hue=df['booking status'], ax=ax)
@@ -95,7 +101,7 @@ if df is not None:
         ax.set_ylabel("Average Price")
         st.pyplot(fig)
 
-    if show_special_requests_vs_price:
+    elif visualization_option == "Special Requests vs. Average Price":
         st.write("### Special Requests vs. Average Price")
         fig, ax = plt.subplots(figsize=(10, 6))
         sns.scatterplot(x=df['special requests'], y=df['average price '], hue=df['booking status'], ax=ax)
@@ -104,7 +110,7 @@ if df is not None:
         ax.set_ylabel("Average Price")
         st.pyplot(fig)
 
-    if show_3d_scatter:
+    elif visualization_option == "3D Scatter Plot":
         st.write("### 3D Scatter Plot of Hotel Bookings")
         fig = px.scatter_3d(
             df,  # Our DataFrame
@@ -126,7 +132,7 @@ if df is not None:
         )
         st.plotly_chart(fig)
 
-    if show_boxplots:
+    elif visualization_option == "Boxplots for Outlier Detection":
         st.write("### Boxplots for Outlier Detection")
         num_cols = df.select_dtypes(include=['number']).columns
         plt.figure(figsize=(12, 6))
@@ -137,7 +143,7 @@ if df is not None:
         plt.tight_layout()
         st.pyplot(plt)
 
-    if show_distributions:
+    elif visualization_option == "Distributions of Numerical Columns":
         st.write("### Distributions of Numerical Columns")
         plt.figure(figsize=(12, 8))
         for i, col in enumerate(num_cols[:6]):  # Limit to first 6 numerical columns
@@ -147,7 +153,7 @@ if df is not None:
         plt.tight_layout()
         st.pyplot(plt)
 
-    if show_correlation:
+    elif visualization_option == "Feature Correlation Heatmap":
         st.write("### Feature Correlation Heatmap")
         plt.figure(figsize=(10, 6))
         sns.heatmap(df.corr(), annot=True, cmap="coolwarm", linewidths=0.5)
