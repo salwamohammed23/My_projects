@@ -50,35 +50,34 @@ def wrangle(filepath):
         return None
 
 # Load and preprocess data
-filepath = 'first inten project.csv'
+filepath = '/content/first inten project.csv'
 df = wrangle(filepath)
 
 if df is not None:
     # Sidebar for user inputs
     st.sidebar.title("📊 Visualization Options")
-    
-    # Select visualization type
-    visualization_options = [
-        "Number of Adults vs. Average Price",
-        "Lead Time vs. Average Price",
-        "Special Requests vs. Average Price",
-        "3D Scatter Plot",
-        "Boxplots for Outlier Detection",
-        "Distributions of Numerical Columns",
-        "Feature Correlation Heatmap"
-    ]
-    selected_visualization = st.sidebar.selectbox(
-        "Choose a visualization:",
-        visualization_options
-    )
 
-    # Main page
+    # Add checkboxes for each visualization
+    show_summary = st.sidebar.checkbox("Show Dataset Summary", value=True)
+    show_adults_vs_price = st.sidebar.checkbox("Show Number of Adults vs. Average Price")
+    show_lead_time_vs_price = st.sidebar.checkbox("Show Lead Time vs. Average Price")
+    show_special_requests_vs_price = st.sidebar.checkbox("Show Special Requests vs. Average Price")
+    show_3d_scatter = st.sidebar.checkbox("Show 3D Scatter Plot")
+    show_boxplots = st.sidebar.checkbox("Show Boxplots for Outlier Detection")
+    show_distributions = st.sidebar.checkbox("Show Distributions of Numerical Columns")
+    show_correlation = st.sidebar.checkbox("Show Feature Correlation Heatmap")
+
+    # Main content
     st.title("Hotel Booking Data Analysis")
-    st.write("### Dataset Head")
-    st.write(df.head())
 
-    # Display selected visualization
-    if selected_visualization == "Number of Adults vs. Average Price":
+    if show_summary:
+        st.write("### 📌 Dataset Info")
+        st.write(df.info())
+
+        st.write("### 📌 Summary Statistics")
+        st.write(df.describe())
+
+    if show_adults_vs_price:
         st.write("### Number of Adults vs. Average Price")
         fig, ax = plt.subplots(figsize=(10, 6))
         sns.scatterplot(x=df['number of adults'], y=df['average price '], hue=df['booking status'], ax=ax)
@@ -87,7 +86,7 @@ if df is not None:
         ax.set_ylabel("Average Price")
         st.pyplot(fig)
 
-    elif selected_visualization == "Lead Time vs. Average Price":
+    if show_lead_time_vs_price:
         st.write("### Lead Time vs. Average Price")
         fig, ax = plt.subplots(figsize=(10, 6))
         sns.scatterplot(x=df['lead time'], y=df['average price '], hue=df['booking status'], ax=ax)
@@ -96,7 +95,7 @@ if df is not None:
         ax.set_ylabel("Average Price")
         st.pyplot(fig)
 
-    elif selected_visualization == "Special Requests vs. Average Price":
+    if show_special_requests_vs_price:
         st.write("### Special Requests vs. Average Price")
         fig, ax = plt.subplots(figsize=(10, 6))
         sns.scatterplot(x=df['special requests'], y=df['average price '], hue=df['booking status'], ax=ax)
@@ -105,7 +104,7 @@ if df is not None:
         ax.set_ylabel("Average Price")
         st.pyplot(fig)
 
-    elif selected_visualization == "3D Scatter Plot":
+    if show_3d_scatter:
         st.write("### 3D Scatter Plot of Hotel Bookings")
         fig = px.scatter_3d(
             df,  # Our DataFrame
@@ -127,7 +126,7 @@ if df is not None:
         )
         st.plotly_chart(fig)
 
-    elif selected_visualization == "Boxplots for Outlier Detection":
+    if show_boxplots:
         st.write("### Boxplots for Outlier Detection")
         num_cols = df.select_dtypes(include=['number']).columns
         plt.figure(figsize=(12, 6))
@@ -138,7 +137,7 @@ if df is not None:
         plt.tight_layout()
         st.pyplot(plt)
 
-    elif selected_visualization == "Distributions of Numerical Columns":
+    if show_distributions:
         st.write("### Distributions of Numerical Columns")
         plt.figure(figsize=(12, 8))
         for i, col in enumerate(num_cols[:6]):  # Limit to first 6 numerical columns
@@ -148,7 +147,7 @@ if df is not None:
         plt.tight_layout()
         st.pyplot(plt)
 
-    elif selected_visualization == "Feature Correlation Heatmap":
+    if show_correlation:
         st.write("### Feature Correlation Heatmap")
         plt.figure(figsize=(10, 6))
         sns.heatmap(df.corr(), annot=True, cmap="coolwarm", linewidths=0.5)
