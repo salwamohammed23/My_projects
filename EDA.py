@@ -9,15 +9,9 @@ from sklearn.preprocessing import LabelEncoder
 
 # Function to load data
 @st.cache_data
-def load_data():
-    uploaded_file = st.file_uploader("Upload your CSV file", type=["csv"])
-    if uploaded_file is not None:
-        df = pd.read_csv(uploaded_file)
-        df.columns = df.columns.str.strip()  # Remove any trailing spaces in column names
-        return df
-    return None
 
-df = load_data()
+
+df = df = load_data("first inten project.csv")
 
 if df is not None:
     # Function to preprocess data
