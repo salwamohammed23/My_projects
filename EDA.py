@@ -18,11 +18,7 @@ df = load_data("first inten project.csv")
 # معالجة البيانات
 @st.cache_data
 def preprocess_data(df):
-    df = df[['Booking_ID', 'number of adults', 'number of children',
-             'number of weekend nights', 'number of week nights', 'type of meal',
-             'car parking space', 'room type', 'lead time', 'market segment type',
-             'repeated', 'P-C', 'P-not-C', 'average price ', 'special requests',
-             'date of reservation', 'booking status']]
+
     
     imputer = SimpleImputer(strategy='mean')
     numeric_columns = df.select_dtypes(include='number').columns
@@ -41,7 +37,7 @@ df = preprocess_data(df)
 # تقسيم الصفحة إلى Sidebar
 st.sidebar.title("🔍 استكشاف البيانات")
 st.sidebar.write("## 🗂️ عرض البيانات الأساسية")
-st.sidebar.dataframe(df.head())
+st.dataframe(df.head())
 
 st.sidebar.write("## 📊 التحليل الإحصائي")
 st.sidebar.write(df.describe())
