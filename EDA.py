@@ -13,16 +13,12 @@ def load_data(filepath):
     df = pd.read_csv(filepath)
     return df
 
-df = load_data("/content/first_inten_project.csv")
+df = load_data("first_inten_project.csv")
 
 # معالجة البيانات
 @st.cache_data
 def preprocess_data(df):
-    df = df[['Booking_ID', 'number of adults', 'number of children',
-             'number of weekend nights', 'number of week nights', 'type of meal',
-             'car parking space', 'room type', 'lead time', 'market segment type',
-             'repeated', 'P-C', 'P-not-C', 'average price ', 'special requests',
-             'date of reservation', 'booking status']]
+
     
     imputer = SimpleImputer(strategy='mean')
     numeric_columns = df.select_dtypes(include='number').columns
