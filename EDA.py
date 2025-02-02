@@ -50,7 +50,7 @@ def wrangle(filepath):
         return None
 
 # Load and preprocess data
-filepath = '/content/first inten project.csv'
+filepath = 'first inten project.csv'
 df = wrangle(filepath)
 
 if df is not None:
