@@ -55,17 +55,14 @@ df = wrangle(filepath)
 
 if df is not None:
     # Sidebar for user inputs
-    st.sidebar.title("📊 Visualization Options")
+    st.sidebar.title("📊 EDA")
 
     # Add a radio button to select one visualization
     visualization_option = st.sidebar.radio(
         "Choose a Visualization:",
         options=[
             "Dataset Summary",
-            "Number of Adults vs. Average Price",
-            "Lead Time vs. Average Price",
-            "Special Requests vs. Average Price",
-            "3D Scatter Plot",
+            "scatterplot",
             "Boxplots for Outlier Detection",
             "Distributions of Numerical Columns",
             "Feature Correlation Heatmap"
@@ -84,6 +81,15 @@ if df is not None:
         st.write(df.describe())
 
     elif visualization_option == "Number of Adults vs. Average Price":
+            tab1, tab2, tab3, tab4 = st.tabs([
+        "Number of Adults vs. Average Price",
+        "Lead Time vs. Average Price",
+        "Special Requests vs. Average Price",
+        "3D Scatter Plot"
+    ])
+
+    # Tab 1: Number of Adults vs. Average Price
+    with tab1:
         st.write("### Number of Adults vs. Average Price")
         fig, ax = plt.subplots(figsize=(10, 6))
         sns.scatterplot(x=df['number of adults'], y=df['average price '], hue=df['booking status'], ax=ax)
@@ -92,7 +98,8 @@ if df is not None:
         ax.set_ylabel("Average Price")
         st.pyplot(fig)
 
-    elif visualization_option == "Lead Time vs. Average Price":
+    # Tab 2: Lead Time vs. Average Price
+    with tab2:
         st.write("### Lead Time vs. Average Price")
         fig, ax = plt.subplots(figsize=(10, 6))
         sns.scatterplot(x=df['lead time'], y=df['average price '], hue=df['booking status'], ax=ax)
@@ -101,7 +108,8 @@ if df is not None:
         ax.set_ylabel("Average Price")
         st.pyplot(fig)
 
-    elif visualization_option == "Special Requests vs. Average Price":
+    # Tab 3: Special Requests vs. Average Price
+    with tab3:
         st.write("### Special Requests vs. Average Price")
         fig, ax = plt.subplots(figsize=(10, 6))
         sns.scatterplot(x=df['special requests'], y=df['average price '], hue=df['booking status'], ax=ax)
@@ -110,7 +118,8 @@ if df is not None:
         ax.set_ylabel("Average Price")
         st.pyplot(fig)
 
-    elif visualization_option == "3D Scatter Plot":
+    # Tab 4: 3D Scatter Plot
+    with tab4:
         st.write("### 3D Scatter Plot of Hotel Bookings")
         fig = px.scatter_3d(
             df,  # Our DataFrame
@@ -131,7 +140,7 @@ if df is not None:
             )
         )
         st.plotly_chart(fig)
-
+        
     elif visualization_option == "Boxplots for Outlier Detection":
         st.write("### Boxplots for Outlier Detection")
         num_cols = df.select_dtypes(include=['number']).columns
