@@ -13,7 +13,7 @@ def load_data(filepath):
     df = pd.read_csv(filepath)
     return df
 
-df = load_data("/content/first_inten_project.csv")
+df = load_data("first_inten_project.csv")
 
 # معالجة البيانات
 @st.cache_data
