@@ -11,11 +11,14 @@ from sklearn.preprocessing import LabelEncoder
 @st.cache_data
 def load_data(filepath):
     df = pd.read_csv(filepath)
+    df.columns = df.columns.str.strip()  # Remove any trailing spaces in column names
     return df
 
 df = load_data("first inten project.csv")
 
 if df is not None:
+    st.write("Columns in dataset:", df.columns.tolist())  # Display column names
+    
     # Function to preprocess data
     @st.cache_data(hash_funcs={pd.DataFrame: lambda _: None})
     def preprocess_data(df):
