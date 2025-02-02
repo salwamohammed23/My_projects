@@ -13,12 +13,16 @@ def load_data(filepath):
     df = pd.read_csv(filepath)
     return df
 
-df = load_data("first inten project.csv")
+df = load_data("/content/first_inten_project.csv")
 
 # معالجة البيانات
 @st.cache_data
 def preprocess_data(df):
-
+    df = df[['Booking_ID', 'number of adults', 'number of children',
+             'number of weekend nights', 'number of week nights', 'type of meal',
+             'car parking space', 'room type', 'lead time', 'market segment type',
+             'repeated', 'P-C', 'P-not-C', 'average price ', 'special requests',
+             'date of reservation', 'booking status']]
     
     imputer = SimpleImputer(strategy='mean')
     numeric_columns = df.select_dtypes(include='number').columns
@@ -34,19 +38,19 @@ def preprocess_data(df):
 
 df = preprocess_data(df)
 
-# تقسيم الصفحة إلى Sidebar
+# تقسيم الصفحة إلى أزرار في Sidebar
 st.sidebar.title("🔍 استكشاف البيانات")
-st.sidebar.write("## 🗂️ عرض البيانات الأساسية")
-st.dataframe(df.head())
+if st.sidebar.button("🗂️ عرض البيانات الأساسية"):
+    st.write(df.head())
 
-st.sidebar.write("## 📊 التحليل الإحصائي")
-st.sidebar.write(df.describe())
+if st.sidebar.button("📊 التحليل الإحصائي"):
+    st.write(df.describe())
 
-st.sidebar.write("## 📈 الرسوم البيانية التفاعلية")
-fig = px.scatter_3d(df, x='lead time', y='number of adults', z='average price ', color='booking status')
-st.sidebar.plotly_chart(fig)
+if st.sidebar.button("📈 الرسوم البيانية التفاعلية"):
+    fig = px.scatter_3d(df, x='lead time', y='number of adults', z='average price ', color='booking status')
+    st.plotly_chart(fig)
 
-st.sidebar.write("## 🔗 تحليل الارتباطات")
-fig, ax = plt.subplots(figsize=(10, 6))
-sns.heatmap(df.corr(), annot=True, cmap="coolwarm", linewidths=0.5, ax=ax)
-st.sidebar.pyplot(fig)
+if st.sidebar.button("🔗 تحليل الارتباطات"):
+    fig, ax = plt.subplots(figsize=(10, 6))
+    sns.heatmap(df.corr(), annot=True, cmap="coolwarm", linewidths=0.5, ax=ax)
+    st.pyplot(fig)
