@@ -49,6 +49,9 @@ def wrangle(filepath):
         st.error(f"Error loading data: {e}")
         return None
 
+# Streamlit app
+st.title("Hotel Booking Data Analysis")
+
 # Load and preprocess data
 filepath = 'first inten project.csv'
 df = wrangle(filepath)
@@ -62,7 +65,7 @@ if df is not None:
         "Choose a Visualization:",
         options=[
             "Dataset Summary",
-            "scatterplot",
+            "Scatterplot",
             "Boxplots for Outlier Detection",
             "Distributions of Numerical Columns",
             "Feature Correlation Heatmap"
@@ -70,18 +73,15 @@ if df is not None:
     )
 
     # Main content
-    st.title("Hotel Booking Data Analysis")
-
-    # Display the selected visualization
     if visualization_option == "Dataset Summary":
         st.write("### 📌 Dataset Info")
-        st.write(df.info())
+        st.write(df.columns)
 
         st.write("### 📌 Summary Statistics")
         st.write(df.describe())
 
-    elif visualization_option == "Number of Adults vs. Average Price":
-            tab1, tab2, tab3, tab4 = st.tabs([
+    elif visualization_option == "Scatterplot":
+        tab1, tab2, tab3, tab4 = st.tabs([
             "Number of Adults vs. Average Price",
             "Lead Time vs. Average Price",
             "Special Requests vs. Average Price",
@@ -154,6 +154,7 @@ if df is not None:
 
     elif visualization_option == "Distributions of Numerical Columns":
         st.write("### Distributions of Numerical Columns")
+        num_cols = df.select_dtypes(include=['number']).columns
         plt.figure(figsize=(12, 8))
         for i, col in enumerate(num_cols[:6]):  # Limit to first 6 numerical columns
             plt.subplot(2, 3, i+1)
@@ -168,3 +169,5 @@ if df is not None:
         sns.heatmap(df.corr(), annot=True, cmap="coolwarm", linewidths=0.5)
         plt.title("Feature Correlation Heatmap")
         st.pyplot(plt)
+else:
+    st.error("Failed to load the dataset. Please check the file path and try again.")
