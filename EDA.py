@@ -121,7 +121,23 @@ if df is not None:
             ax.set_title("Number of children vs. Average Price")
             ax.set_xlabel("Number of children")
             ax.set_ylabel("Average Price")
-            st.pyplot(fig)    
+            st.pyplot(fig)  
+            st.subheader("🔍 Analysis Insights")
+    
+            st.markdown("✅ **Distribution of Data:**\n"
+                        "   - Most bookings are for families with 0 to 3 children.\n "
+                        "There are very few bookings for families with more than 3 children, with an outlier at 10 children.\n")
+            
+            st.markdown("✅ **Relationship Between Number of Children and Average Price:**\n"
+                        "   - There is no clear increasing or decreasing trend between the number of children and the average price.\n")
+            
+            st.markdown("✅ **Booking Status :**\n"
+                        "   - Blue dots (0 - Canceled) are present across all categories, meaning that cancellations occur regardless of the number of children.\n")
+            
+            st.markdown("✅ **Limited Range of Adult Counts:**\n"
+                        "   - However, at higher numbers of children (especially 3+), there are more orange dots (1 - Not Canceled), suggesting that families with more children might be less likely to cancel compared to those with no children.\n")
+            
+
     
         # Tab 3: Lead Time vs. Average Price
         with tab3:
