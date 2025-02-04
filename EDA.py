@@ -137,6 +137,10 @@ if df is not None:
             
             - **Few Bookings Beyond 300 Days**:  
               Very few bookings extend beyond 300-400 days, indicating that most people don’t plan trips that far in advance.
+
+              - ** Difference in Booking Status (0 vs. 1)**:
+
+               it appears that bookings with lower lead times may have a higher probability of cancellations.
             """)
                 
         # Tab 3: Special Requests vs. Average Price
