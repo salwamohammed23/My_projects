@@ -160,6 +160,17 @@ if df is not None:
             ax.set_xlabel("Number of Special Requests")
             ax.set_ylabel("Average Price")
             st.pyplot(fig)
+            st.subheader("🔍 Analysis Insights")
+    
+            st.markdown("✅ **Distribution of Special Requests::**\n" 
+                        "Most data points are clustered at lower numbers of special requests (0, 1, 2), indicating that most customers make few or no special requests.\n")
+            
+            st.markdown("✅ **Relationship Between Special Requests and Average Price:**\n"
+                        "   - There is no clear linear relationship between special requests and average price. Customers with both low and high prices make special requests.\n")
+            
+            st.markdown("✅ **Special Requests vs. Cancellation:**\n"
+                        "   - Customers with 0 special requests show a higher concentration of cancellations (blue dots) compared to those with more special requests.\n"
+                        "   - As the number of special requests increases, there appears to be a higher proportion of orange dots (Not Canceled bookings).\n")
     
         # Tab 5: 3D Scatter Plot
         with tab5:
