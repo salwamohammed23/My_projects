@@ -114,7 +114,7 @@ if df is not None:
             
             st.markdown("✅ **Potential Impact of External Factors:**\n"
                         "   - Seasonal changes, promotions, and events might influence price variations.\n")
-         with tab2:
+        with tab2:
             st.write("### Number of children vs. Average Price")
             fig, ax = plt.subplots(figsize=(10, 6))
             sns.scatterplot(x=df['number of children'], y=df['average price '], hue=df['booking status'], ax=ax)
