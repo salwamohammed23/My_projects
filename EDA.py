@@ -124,7 +124,21 @@ if df is not None:
             ax.set_xlabel("Lead Time (Days)")
             ax.set_ylabel("Average Price")
             st.pyplot(fig)
-    
+            st.header("Observations and Conclusions")
+            st.markdown("""
+            - **Inverse Relationship Between Lead Time and Price**:  
+              As Lead Time increases, the Average Price tends to decrease. Early bookings (higher lead time) often secure lower prices, while last-minute bookings (low lead time) may be more expensive.
+            
+            - **High Density of Bookings at Lower Lead Times**:  
+              The majority of bookings occur at a lead time of less than 100 days, indicating that most customers book within this period. A significant number of bookings also exist close to zero lead time, suggesting frequent last-minute reservations.
+            
+            - **Outliers in Price**:  
+              There are a few points where prices are exceptionally high, particularly for low lead times (last-minute bookings). This could be due to premium rooms, peak season pricing, or high-demand periods.
+            
+            - **Few Bookings Beyond 300 Days**:  
+              Very few bookings extend beyond 300-400 days, indicating that most people don’t plan trips that far in advance.
+            """)
+                
         # Tab 3: Special Requests vs. Average Price
         with tab3:
             st.write("### Special Requests vs. Average Price")
