@@ -247,18 +247,18 @@ In this dataset, boxplots are generated for multiple features:
         st.markdown("✅ **  Distribution of Booking_ID::**\n"
                         "   - The distribution is uniform, indicating that the booking IDs are assigned sequentially without any missing data patterns.\n")
             
-         st.markdown("✅ **Distribution of Number of Adults:**\n"
+        st.markdown("✅ **Distribution of Number of Adults:**\n"
                         "   - A large peak at 2 adults, confirming that most bookings are for couples or pairs Smaller counts for 1 and 3 adults.\n")
                         "   - Few bookings with 4 adults, suggesting rare group bookings.\n")
                         "   - Presence of bookings with 0 adults, which may indicate data entry errors or test records.\n")
             
-         st.markdown("✅ **Distribution of Number of Children:**\n"
+        st.markdown("✅ **Distribution of Number of Children:**\n"
                         " - Most bookings have 0 children, as shown by the sharp peak.\n")
                             "   - Very few bookings with 1 or more children.\n")
                            "   - Some outliers with up to 10 children, likely to be data anomalies.\n")
                               "   - .\n")
             
-        st.markdown("✅ **Distribution of Number of Weekend Nights:**\n"
+       st.markdown("✅ **Distribution of Number of Weekend Nights:**\n"
                         "   - The distribution is right-skewed, with most bookings having 0 to 2 weekend nights..\n")
                          "   - Fewer bookings extend to 5 or more weekend nights, indicating shorter weekend stays are common.\n")
                 
