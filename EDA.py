@@ -114,9 +114,17 @@ if df is not None:
             
             st.markdown("✅ **Potential Impact of External Factors:**\n"
                         "   - Seasonal changes, promotions, and events might influence price variations.\n")
+         with tab2:
+            st.write("### Number of children vs. Average Price")
+            fig, ax = plt.subplots(figsize=(10, 6))
+            sns.scatterplot(x=df['number of children'], y=df['average price '], hue=df['booking status'], ax=ax)
+            ax.set_title("Number of children vs. Average Price")
+            ax.set_xlabel("Number of children")
+            ax.set_ylabel("Average Price")
+            st.pyplot(fig)    
     
-        # Tab 2: Lead Time vs. Average Price
-        with tab2:
+        # Tab 3: Lead Time vs. Average Price
+        with tab3:
             st.write("### Lead Time vs. Average Price")
             fig, ax = plt.subplots(figsize=(10, 6))
             sns.scatterplot(x=df['lead time'], y=df['average price '], hue=df['booking status'], ax=ax)
@@ -138,13 +146,13 @@ if df is not None:
             - **Few Bookings Beyond 300 Days**:  
               Very few bookings extend beyond 300-400 days, indicating that most people don’t plan trips that far in advance.
 
-              - ** Difference in Booking Status (0 vs. 1)**:
+            - ** Difference in Booking Status (0 vs. 1)**:
 
                it appears that bookings with lower lead times may have a higher probability of cancellations.
             """)
                 
-        # Tab 3: Special Requests vs. Average Price
-        with tab3:
+        # Tab 4: Special Requests vs. Average Price
+        with tab4:
             st.write("### Special Requests vs. Average Price")
             fig, ax = plt.subplots(figsize=(10, 6))
             sns.scatterplot(x=df['special requests'], y=df['average price '], hue=df['booking status'], ax=ax)
@@ -153,8 +161,8 @@ if df is not None:
             ax.set_ylabel("Average Price")
             st.pyplot(fig)
     
-        # Tab 4: 3D Scatter Plot
-        with tab4:
+        # Tab 5: 3D Scatter Plot
+        with tab5:
             st.write("### 3D Scatter Plot of Hotel Bookings")
             fig = px.scatter_3d(
                 df,  # Our DataFrame
