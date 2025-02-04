@@ -124,7 +124,7 @@ if df is not None:
             ax.set_xlabel("Lead Time (Days)")
             ax.set_ylabel("Average Price")
             st.pyplot(fig)
-            st.header("Observations and Conclusions")
+            st.header("Analysis Insights")
             st.markdown("""
             - **Inverse Relationship Between Lead Time and Price**:  
               As Lead Time increases, the Average Price tends to decrease. Early bookings (higher lead time) often secure lower prices, while last-minute bookings (low lead time) may be more expensive.
