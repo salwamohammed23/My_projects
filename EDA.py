@@ -73,8 +73,8 @@ if df is not None:
     )
      # Main content
     if visualization_option == "Dataset framwork":
-    st.write("### 📌 Dataset framwork")
-    st.write(df.head())
+        st.write("### 📌 Dataset framwork")
+        st.write(df.head())
 
    
     if visualization_option == "Dataset Summary":
