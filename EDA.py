@@ -280,5 +280,28 @@ In this dataset, boxplots are generated for multiple features:
         sns.heatmap(df.corr(), annot=True, cmap="coolwarm", linewidths=0.5)
         plt.title("Feature Correlation Heatmap")
         st.pyplot(plt)
+        
+        
+        # Strong Positive Correlations
+        st.markdown("### ✅ **Strong Positive Correlations:**")
+        st.markdown("- **P-C and P-not-C (~1.0):** These features are almost perfectly correlated, which may indicate they represent similar or dependent variables. Consider checking for redundancy.")
+        st.markdown("- **repeated and P-C (~0.97):** A very strong correlation suggests repeated bookings are strongly linked with the P-C variable.")
+        st.markdown("- **number of adults and room type (~0.57):** Indicates that the number of adults influences the type of room booked.")
+        
+        # Moderate Correlations
+        st.markdown("### ⚡ **Moderate Correlations:**")
+        st.markdown("- **lead time and market segment type (~0.31):** Suggests that different market segments have varying booking lead times.")
+        st.markdown("- **average price with room type and special requests:** Indicates pricing varies based on room type and customer requests.")
+        
+        # Weak or No Correlation
+        st.markdown("### 🚫 **Weak or No Correlation:**")
+        st.markdown("- **Booking_ID with other features (~0):** As expected, since IDs are unique identifiers.")
+        st.markdown("- **number of children shows weak correlation with most features.**")
+        
+        # Potential Data Insights
+        st.markdown("### 💡 **Potential Data Insights:**")
+        st.markdown("- **special requests have a slight correlation with booking status,** indicating that special requests might influence cancellations or confirmations.")
+        st.markdown("- **date of reservation has minimal correlation,** suggesting booking patterns are not heavily time-dependent.")
+
 else:
     st.error("Failed to load the dataset. Please check the file path and try again.")
