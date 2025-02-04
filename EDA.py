@@ -82,9 +82,9 @@ if df is not None:
 
     elif visualization_option == "Scatterplot":
         tab1, tab2, tab3, tab4, tab5 = st.tabs([
-            "Adults vs. Average Price", "children vs. Average Price",
-            "Lead Time vs. Average Price",
-            "Special Requests vs. Average Price",
+            "Adults vs. Price", "children vs. Price",
+            "Lead Time vs. Price",
+            "Special Requests vs. Price",
             "3D Scatter Plot"
         ])
     
