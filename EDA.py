@@ -214,7 +214,7 @@ In this dataset, boxplots are generated for multiple features:
 - **Type of meal**: Outliers appear, suggesting some unusual meal-type entries.  
 """)
 
-    elif visualization_option == "Scatterplots":
+    elif visualization_option == "subplot":
         st.write("### Distributions of Numerical Columns")
         num_cols = df.select_dtypes(include=['number']).columns
         plt.figure(figsize=(12, 8))
