@@ -151,6 +151,16 @@ if df is not None:
             plt.title(f'Boxplot of {col}')
         plt.tight_layout()
         st.pyplot(plt)
+        st.write("""
+In this dataset, boxplots are generated for multiple features:
+
+- **Booking ID**: The range of values is wide, but no extreme outliers are evident.  
+- **Number of adults**: A few outliers exist, indicating unusually high numbers of adults in some bookings.  
+- **Number of children**: Outliers suggest that some bookings have an exceptionally high number of children.  
+- **Number of weekend nights**: Some bookings have significantly more weekend nights than others.  
+- **Number of week nights**: Many outliers indicate that a few bookings have significantly longer stays during the week.  
+- **Type of meal**: Outliers appear, suggesting some unusual meal-type entries.  
+""")
 
     elif visualization_option == "Distributions of Numerical Columns":
         st.write("### Distributions of Numerical Columns")
