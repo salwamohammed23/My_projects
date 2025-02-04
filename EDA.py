@@ -97,6 +97,23 @@ if df is not None:
             ax.set_xlabel("Number of Adults")
             ax.set_ylabel("Average Price")
             st.pyplot(fig)
+            st.subheader("🔍 Analysis Insights")
+    
+            st.markdown("✅ **Increasing Cost with More Adults:**\n"
+                        "   - Generally, as the number of adults increases, the average price also rises. "
+                        "This is expected since larger accommodations or extra services are required.\n")
+            
+            st.markdown("✅ **Outliers in Pricing:**\n"
+                        "   - Some points show exceptionally high prices, possibly due to luxury bookings or premium services.\n")
+            
+            st.markdown("✅ **Variation in Booking Status:**\n"
+                        "   - Different booking statuses (0 and 1) suggest pricing variations based on confirmation or cancellation.\n")
+            
+            st.markdown("✅ **Limited Range of Adult Counts:**\n"
+                        "   - The number of adults is capped at 4, indicating a focus on small group or family reservations.\n")
+            
+            st.markdown("✅ **Potential Impact of External Factors:**\n"
+                        "   - Seasonal changes, promotions, and events might influence price variations.\n")
     
         # Tab 2: Lead Time vs. Average Price
         with tab2:
