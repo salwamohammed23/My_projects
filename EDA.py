@@ -13,12 +13,12 @@ def wrangle(filepath):
         # Read CSV file
         df = pd.read_csv(filepath)
 
-        # Select relevant columns
+      # Select relevant columns
         columns = ['Booking_ID', 'number of adults', 'number of children',
                    'number of weekend nights', 'number of week nights', 'type of meal',
                    'car parking space', 'room type', 'lead time', 'market segment type',
                    'repeated', 'P-C', 'P-not-C', 'average price ', 'special requests',
-                   'date of reservation', 'booking status']
+                   'date of reservation', 'booking status']  
         
         # Check if all columns exist in the dataframe
         missing_cols = set(columns) - set(df.columns)
@@ -67,7 +67,7 @@ if df is not None:
             "Dataset Summary",
             "Scatterplot",
             "Boxplots for Outlier Detection",
-            "Distributions of Numerical Columns",
+            "subplot",
             "Feature Correlation Heatmap"
         ]
     )
@@ -85,11 +85,10 @@ if df is not None:
         st.write(df.describe())
 
     elif visualization_option == "Scatterplot":
-        tab1, tab2, tab3, tab4, tab5 = st.tabs([
+        tab1, tab2, tab3, tab4 = st.tabs([
             "Adults vs. Price", "children vs. Price",
             "Lead Time vs. Price",
-            "Special Requests vs. Price",
-            "3D Scatter Plot"
+            "Special Requests vs. Price"
         ])
     
         # Tab 1: Number of Adults vs. Average Price
@@ -193,28 +192,7 @@ if df is not None:
                         "   - As the number of special requests increases, there appears to be a higher proportion of orange dots (Not Canceled bookings).\n")
     
         # Tab 5: 3D Scatter Plot
-        with tab5:
-            st.write("### 3D Scatter Plot of Hotel Bookings")
-            fig = px.scatter_3d(
-                df,  # Our DataFrame
-                x='lead time',  # X-axis: How far in advance the booking was made
-                y='number of adults',  # Y-axis: Number of adults in the booking
-                z='average price ',  # Z-axis: Price of the booking
-                color='booking status',  # Color the points based on booking status
-                hover_data=['number of children', 'room type', 'market segment type'],  # Extra details on hover
-                title="3D Scatter Plot of Hotel Bookings"
-            )
-            fig.update_layout(
-                width=800,  # Set figure width
-                height=600,  # Set figure height
-                scene=dict(
-                    xaxis_title='Lead Time (Days)',
-                    yaxis_title='Number of Adults',
-                    zaxis_title='Average Price ($)'
-                )
-            )
-            st.plotly_chart(fig)
-        
+       
     elif visualization_option == "Boxplots for Outlier Detection":
         st.write("### Boxplots for Outlier Detection")
         num_cols = df.select_dtypes(include=['number']).columns
