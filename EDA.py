@@ -62,8 +62,8 @@ if df is not None:
 
     # Add a radio button to select one visualization
     visualization_option = st.sidebar.radio(
-        "Choose a Visualization:",
-        options=[
+        "Choose:",
+        options=["Dataset framwork",
             "Dataset Summary",
             "Scatterplot",
             "Boxplots for Outlier Detection",
@@ -71,8 +71,12 @@ if df is not None:
             "Feature Correlation Heatmap"
         ]
     )
+     # Main content
+    if visualization_option == "Dataset framwork":
+    st.write("### 📌 Dataset framwork")
+    st.write(df.head())
 
-    # Main content
+   
     if visualization_option == "Dataset Summary":
         st.write("### 📌 Dataset Info")
         st.write(df.columns)
