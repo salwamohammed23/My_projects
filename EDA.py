@@ -82,7 +82,7 @@ if df is not None:
 
     elif visualization_option == "Scatterplot":
         tab1, tab2, tab3, tab4, tab5 = st.tabs([
-            "Number of Adults vs. Average Price", "Number of children vs. Average Price",
+            "Adults vs. Average Price", "children vs. Average Price",
             "Lead Time vs. Average Price",
             "Special Requests vs. Average Price",
             "3D Scatter Plot"
@@ -146,7 +146,7 @@ if df is not None:
             - **Few Bookings Beyond 300 Days**:  
               Very few bookings extend beyond 300-400 days, indicating that most people don’t plan trips that far in advance.
 
-            - ** Difference in Booking Status (0 vs. 1)**:
+            - **Difference in Booking Status (0 vs. 1)**:
 
                it appears that bookings with lower lead times may have a higher probability of cancellations.
             """)
