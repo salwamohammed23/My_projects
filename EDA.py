@@ -249,7 +249,7 @@ In this dataset, boxplots are generated for multiple features:
             
         st.markdown("✅ **Distribution of Number of Adults:**\n"
                         "   - A large peak at 2 adults, confirming that most bookings are for couples or pairs Smaller counts for 1 and 3 adults.\n")
-                        "   - Few bookings with 4 adults, suggesting rare group bookings.\n")
+                        "   - Few bookings with 4 adults, suggesting rare group bookings.\n"
                         "   - Presence of bookings with 0 adults, which may indicate data entry errors or test records.\n")
             
         st.markdown("✅ **Distribution of Number of Children:**\n"
