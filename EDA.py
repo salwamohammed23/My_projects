@@ -260,12 +260,12 @@ In this dataset, boxplots are generated for multiple features:
             "- .\n")
 
             
-       st.markdown("✅ **Distribution of Number of Weekend Nights:**\n"
-            "- The distribution is right-skewed, with most bookings having 0 to 2 weekend nights.\n"
-            "- Fewer bookings extend to 5 or more weekend nights, indicating shorter weekend stays are common.\n")
+        st.markdown("✅ **Distribution of Number of Weekend Nights:**\n"
+             "- The distribution is right-skewed, with most bookings having 0 to 2 weekend nights.\n"
+             "- Fewer bookings extend to 5 or more weekend nights, indicating shorter weekend stays are common.\n")
 
-        st.markdown("✅ **Distribution of Number of Week Nights:**\n"
-                    "- Similar right-skewed pattern but extends further compared to weekend nights.\n"
+         st.markdown("✅ **Distribution of Number of Week Nights:**\n"
+                     "- Similar right-skewed pattern but extends further compared to weekend nights.\n"
                     "- Many bookings are for 1 to 4 weeknights, with fewer extending up to 17 nights.\n")
         
         st.markdown("✅ **Distribution of Type of Meal:**\n"
