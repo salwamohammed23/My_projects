@@ -254,22 +254,25 @@ In this dataset, boxplots are generated for multiple features:
             "- Presence of bookings with 0 adults, which may indicate data entry errors or test records.\n")
 
         st.markdown("✅ **Distribution of Number of Children:**\n"
-                        " - Most bookings have 0 children, as shown by the sharp peak.\n")
-                            "   - Very few bookings with 1 or more children.\n")
-                           "   - Some outliers with up to 10 children, likely to be data anomalies.\n")
-                              "   - .\n")
+            "- Most bookings have 0 children, as shown by the sharp peak.\n"
+            "- Very few bookings with 1 or more children.\n"
+            "- Some outliers with up to 10 children, likely to be data anomalies.\n"
+            "- .\n")
+
             
        st.markdown("✅ **Distribution of Number of Weekend Nights:**\n"
-                        "   - The distribution is right-skewed, with most bookings having 0 to 2 weekend nights..\n")
-                         "   - Fewer bookings extend to 5 or more weekend nights, indicating shorter weekend stays are common.\n")
-                
-         st.markdown("✅ **Distribution of Number of Week Nights:**\n"
-                        "   - Similar right-skewed pattern but extends further compared to weekend nights.\n")
-                         "   - Many bookings are for 1 to 4 weeknights, with fewer extending up to 17 nights.\n")
-            
-         st.markdown("✅ **Distribution of Type of Meal:**\n"
-                        "   - A sharp peak at one category, suggesting a dominant meal type preferred by most customers.\n")
-                          " - A few other categories with lower counts indicate less popular meal options.\n")
+            "- The distribution is right-skewed, with most bookings having 0 to 2 weekend nights.\n"
+            "- Fewer bookings extend to 5 or more weekend nights, indicating shorter weekend stays are common.\n")
+
+        st.markdown("✅ **Distribution of Number of Week Nights:**\n"
+                    "- Similar right-skewed pattern but extends further compared to weekend nights.\n"
+                    "- Many bookings are for 1 to 4 weeknights, with fewer extending up to 17 nights.\n")
+        
+        st.markdown("✅ **Distribution of Type of Meal:**\n"
+                    "- A sharp peak at one category, suggesting a dominant meal type preferred by most customers.\n"
+                    "- A few other categories with lower counts indicate less popular meal options.\n")
+
+
 
     elif visualization_option == "Feature Correlation Heatmap":
         st.write("### Feature Correlation Heatmap")
