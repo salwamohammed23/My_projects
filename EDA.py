@@ -248,10 +248,11 @@ In this dataset, boxplots are generated for multiple features:
                         "   - The distribution is uniform, indicating that the booking IDs are assigned sequentially without any missing data patterns.\n")
             
         st.markdown("✅ **Distribution of Number of Adults:**\n"
-                        "   - A large peak at 2 adults, confirming that most bookings are for couples or pairs Smaller counts for 1 and 3 adults.\n")
-                        "   - Few bookings with 4 adults, suggesting rare group bookings.\n"
-                        "   - Presence of bookings with 0 adults, which may indicate data entry errors or test records.\n")
-            
+            "- A large peak at 2 adults, confirming that most bookings are for couples or pairs.\n"
+            "- Smaller counts for 1 and 3 adults.\n"
+            "- Few bookings with 4 adults, suggesting rare group bookings.\n"
+            "- Presence of bookings with 0 adults, which may indicate data entry errors or test records.\n")
+
         st.markdown("✅ **Distribution of Number of Children:**\n"
                         " - Most bookings have 0 children, as shown by the sharp peak.\n")
                             "   - Very few bookings with 1 or more children.\n")
