@@ -279,21 +279,21 @@ In this dataset, boxplots are generated for multiple features:
                 # عرض المخطط في Streamlit
                 st.plotly_chart(fig)
                 # عرض المخطط
-        st.subheader("📉 Cancellation Analysis")
-        plot_cancellations_by_month(df)
-        st.markdown("""
-            ## 📊 Analysis Insights 
-            
-            ### 🔴 A Noticeable Increase in Cancellations During Months (4, 6, 8, 10)  
-            - **October (Month 10)** recorded the **highest number of cancellations**, followed by **August (Month 8)** and **June (Month 6)**.  
-            - This could be due to **seasonal changes** affecting demand.  
-            
-            ### 🟢 Low Cancellations at the Beginning and End of the Year  
-            - The early months (**January, February**) and the end of the year (**December**) show a **lower number of cancellations**, which may indicate **booking stability** during these periods.  
-            
-            ### 🔄 A Gradual Increase Until Mid-Year  
-            - There is a **steady rise in cancellations from February to June**, which might be linked to **seasonal booking peaks or travel fluctuations**.  
-            """)
+            st.subheader("📉 Cancellation Analysis")
+            plot_cancellations_by_month(df)
+            st.markdown("""
+                ## 📊 Analysis Insights 
+                
+                ### 🔴 A Noticeable Increase in Cancellations During Months (4, 6, 8, 10)  
+                - **October (Month 10)** recorded the **highest number of cancellations**, followed by **August (Month 8)** and **June (Month 6)**.  
+                - This could be due to **seasonal changes** affecting demand.  
+                
+                ### 🟢 Low Cancellations at the Beginning and End of the Year  
+                - The early months (**January, February**) and the end of the year (**December**) show a **lower number of cancellations**, which may indicate **booking stability** during these periods.  
+                
+                ### 🔄 A Gradual Increase Until Mid-Year  
+                - There is a **steady rise in cancellations from February to June**, which might be linked to **seasonal booking peaks or travel fluctuations**.  
+                """)
 
 
     elif visualization_option == "Feature Correlation Heatmap":
