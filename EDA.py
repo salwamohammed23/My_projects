@@ -282,11 +282,11 @@ In this dataset, boxplots are generated for multiple features:
         st.subheader("📉 Cancellation Analysis")
         plot_cancellations_by_month(df)
         st.markdown("""
-            ## 📊 Analysis of Cancellations by Month  
+            ## 📊 Analysis Insights 
             
             ### 🔴 A Noticeable Increase in Cancellations During Months (4, 6, 8, 10)  
             - **October (Month 10)** recorded the **highest number of cancellations**, followed by **August (Month 8)** and **June (Month 6)**.  
-            - This could be due to **holiday seasons or seasonal changes** affecting demand.  
+            - This could be due to **seasonal changes** affecting demand.  
             
             ### 🟢 Low Cancellations at the Beginning and End of the Year  
             - The early months (**January, February**) and the end of the year (**December**) show a **lower number of cancellations**, which may indicate **booking stability** during these periods.  
