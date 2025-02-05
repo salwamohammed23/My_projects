@@ -47,9 +47,7 @@ def wrangle(filepath):
 
     return df
 
-    except Exception as e:
-        st.error(f"Error loading data: {e}")
-        return None
+
 
 # Streamlit app
 st.title("Hotel Booking Data Analysis")
