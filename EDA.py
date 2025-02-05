@@ -9,41 +9,43 @@ from sklearn.preprocessing import LabelEncoder
 
 # Function to load and preprocess data
 def wrangle(filepath):
-    try:
-        # Read CSV file
-        df = pd.read_csv(filepath)
+    """
+    Reads and preprocesses the dataset from the given CSV file.
+    """
+    df = pd.read_csv(filepath)
 
-      # Select relevant columns
-        columns = ['Booking_ID', 'number of adults', 'number of children',
-                   'number of weekend nights', 'number of week nights', 'type of meal',
-                   'car parking space', 'room type', 'lead time', 'market segment type',
-                   'repeated', 'P-C', 'P-not-C', 'average price ', 'special requests',
-                   'date of reservation', 'booking status']  
-        
-        # Check if all columns exist in the dataframe
-        missing_cols = set(columns) - set(df.columns)
-        if missing_cols:
-            st.warning(f"Missing columns: {missing_cols}")
-            return None
+    # Select relevant columns
+    df = df[['Booking_ID', 'number of adults', 'number of children',
+             'number of weekend nights', 'number of week nights', 'type of meal',
+             'car parking space', 'room type', 'lead time', 'market segment type',
+             'repeated', 'P-C', 'P-not-C', 'average price ', 'special requests',
+             'date of reservation', 'booking status']]
 
-        df = df[columns]
+    # Convert 'date of reservation' to datetime format
+    df['date of reservation'] = pd.to_datetime(df['date of reservation'], errors='coerce')
 
-        # Handle missing values
-        if df.isnull().sum().sum() > 0:
-            imputer = SimpleImputer(strategy='mean')  # Replace missing values with column mean
-            numeric_columns = df.select_dtypes(include='number').columns
-            df[numeric_columns] = imputer.fit_transform(df[numeric_columns])
+    # Extract day, month, and year into separate columns
+    df['reservation_day'] = df['date of reservation'].dt.day
+    df['reservation_month'] = df['date of reservation'].dt.month
+    df['reservation_year'] = df['date of reservation'].dt.year
 
-        # Remove duplicate values
-        if df.duplicated().sum() > 0:
-            df.drop_duplicates(inplace=True)
+    # Drop the original 'date of reservation' column
+    df.drop(columns=['date of reservation'], inplace=True)
 
-        # Encode categorical features
-        encoder = LabelEncoder()
-        for col in df.select_dtypes(include='object'):
-            df[col] = encoder.fit_transform(df[col].astype(str))
+    # Handle missing values
+    imputer = SimpleImputer(strategy='mean')
+    numeric_columns = df.select_dtypes(include='number').columns
+    df[numeric_columns] = imputer.fit_transform(df[numeric_columns])
 
-        return df
+    # Remove duplicate values
+    df.drop_duplicates(inplace=True)
+
+    # Encode categorical features
+    encoder = LabelEncoder()
+    for col in df.select_dtypes(include='object'):
+        df[col] = encoder.fit_transform(df[col].astype(str))
+
+    return df
 
     except Exception as e:
         st.error(f"Error loading data: {e}")
