@@ -215,44 +215,72 @@ In this dataset, boxplots are generated for multiple features:
 """)
 
     elif visualization_option == "subplot":
-        st.write("### Distributions of Numerical Columns")
-        num_cols = df.select_dtypes(include=['number']).columns
-        plt.figure(figsize=(12, 8))
-        for i, col in enumerate(num_cols[:6]):  # Limit to first 6 numerical columns
-            plt.subplot(2, 3, i+1)
-            sns.histplot(df[col], kde=True, bins=30)
-            plt.title(f'Distribution of {col}')
-        plt.tight_layout()
-        st.pyplot(plt)
-        st.subheader("🔍 Analysis Insights")
-
-        st.markdown("✅ **  Distribution of Booking_ID::**\n"
-                        "   - The distribution is uniform, indicating that the booking IDs are assigned sequentially without any missing data patterns.\n")
+        tab1, tab2 = st.tabs([
+            "Distribution", "cancellations_by_month"
+        ])
+                # Tab 1: Number of Adults vs. Average Price
+        with tab1:
+            st.write("### Distributions of Numerical Columns")
+            num_cols = df.select_dtypes(include=['number']).columns
+            plt.figure(figsize=(12, 8))
+            for i, col in enumerate(num_cols[:6]):  # Limit to first 6 numerical columns
+                plt.subplot(2, 3, i+1)
+                sns.histplot(df[col], kde=True, bins=30)
+                plt.title(f'Distribution of {col}')
+            plt.tight_layout()
+            st.pyplot(plt)
+            st.subheader("🔍 Analysis Insights")
+    
+            st.markdown("✅ **  Distribution of Booking_ID::**\n"
+                            "   - The distribution is uniform, indicating that the booking IDs are assigned sequentially without any missing data patterns.\n")
+                
+            st.markdown("✅ **Distribution of Number of Adults:**\n"
+                "- A large peak at 2 adults, confirming that most bookings are for couples or pairs.\n"
+                "- Smaller counts for 1 and 3 adults.\n"
+                "- Few bookings with 4 adults, suggesting rare group bookings.\n"
+                "- Presence of bookings with 0 adults, which may indicate data entry errors or test records.\n")
+    
+            st.markdown("✅ **Distribution of Number of Children:**\n"
+                "- Most bookings have 0 children, as shown by the sharp peak.\n"
+                "- Very few bookings with 1 or more children.\n"
+                "- Some outliers with up to 10 children, likely to be data anomalies.\n"
+                "- .\n")
+    
+                
+            st.markdown("✅ **Distribution of Number of Weekend Nights:**\n"
+                 "- The distribution is right-skewed, with most bookings having 0 to 2 weekend nights.\n"
+                 "- Fewer bookings extend to 5 or more weekend nights, indicating shorter weekend stays are common.\n")
+    
+            st.markdown("✅ **Distribution of Number of Week Nights:**\n"
+                         "- Similar right-skewed pattern but extends further compared to weekend nights.\n"
+                        "- Many bookings are for 1 to 4 weeknights, with fewer extending up to 17 nights.\n")
             
-        st.markdown("✅ **Distribution of Number of Adults:**\n"
-            "- A large peak at 2 adults, confirming that most bookings are for couples or pairs.\n"
-            "- Smaller counts for 1 and 3 adults.\n"
-            "- Few bookings with 4 adults, suggesting rare group bookings.\n"
-            "- Presence of bookings with 0 adults, which may indicate data entry errors or test records.\n")
-
-        st.markdown("✅ **Distribution of Number of Children:**\n"
-            "- Most bookings have 0 children, as shown by the sharp peak.\n"
-            "- Very few bookings with 1 or more children.\n"
-            "- Some outliers with up to 10 children, likely to be data anomalies.\n"
-            "- .\n")
-
+            st.markdown("✅ **Distribution of Type of Meal:**\n"
+                        "- A sharp peak at one category, suggesting a dominant meal type preferred by most customers.\n"
+                        "- A few other categories with lower counts indicate less popular meal options.\n")
+                        # Tab 1: Number of Adults vs. Average Price
+        with tab1:
+            def plot_cancellations_by_month(df):
+                """
+                Plots the number of canceled bookings per month in a Streamlit app.
+                """
+                # تصفية الحجوزات الملغاة (نفترض أن 0 تعني الإلغاء)
+                canceled_df = df[df['booking status'] == 0]
             
-        st.markdown("✅ **Distribution of Number of Weekend Nights:**\n"
-             "- The distribution is right-skewed, with most bookings having 0 to 2 weekend nights.\n"
-             "- Fewer bookings extend to 5 or more weekend nights, indicating shorter weekend stays are common.\n")
-
-        st.markdown("✅ **Distribution of Number of Week Nights:**\n"
-                     "- Similar right-skewed pattern but extends further compared to weekend nights.\n"
-                    "- Many bookings are for 1 to 4 weeknights, with fewer extending up to 17 nights.\n")
-        
-        st.markdown("✅ **Distribution of Type of Meal:**\n"
-                    "- A sharp peak at one category, suggesting a dominant meal type preferred by most customers.\n"
-                    "- A few other categories with lower counts indicate less popular meal options.\n")
+                # حساب عدد الإلغاءات لكل شهر
+                cancellations_by_month = canceled_df.groupby('reservation_month').size().reset_index(name='Cancellations')
+            
+                # رسم المخطط باستخدام Plotly
+                fig = px.bar(cancellations_by_month, x='reservation_month', y='Cancellations', 
+                             labels={'reservation_month': 'Month', 'Cancellations': 'Number of Cancellations'},
+                             title='Number of Canceled Bookings per Month',
+                             color='Cancellations', color_continuous_scale='reds')
+            
+                # عرض المخطط في Streamlit
+                st.plotly_chart(fig)
+                # عرض المخطط
+        st.subheader("📉 Cancellation Analysis")
+        plot_cancellations_by_month(df)
 
 
 
