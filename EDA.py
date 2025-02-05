@@ -259,7 +259,7 @@ In this dataset, boxplots are generated for multiple features:
                         "- A sharp peak at one category, suggesting a dominant meal type preferred by most customers.\n"
                         "- A few other categories with lower counts indicate less popular meal options.\n")
                         # Tab 1: Number of Adults vs. Average Price
-        with tab1:
+        with tab2:
             def plot_cancellations_by_month(df):
                 """
                 Plots the number of canceled bookings per month in a Streamlit app.
@@ -281,7 +281,19 @@ In this dataset, boxplots are generated for multiple features:
                 # عرض المخطط
         st.subheader("📉 Cancellation Analysis")
         plot_cancellations_by_month(df)
-
+        st.markdown("""
+            ## 📊 Analysis of Cancellations by Month  
+            
+            ### 🔴 A Noticeable Increase in Cancellations During Months (4, 6, 8, 10)  
+            - **October (Month 10)** recorded the **highest number of cancellations**, followed by **August (Month 8)** and **June (Month 6)**.  
+            - This could be due to **holiday seasons or seasonal changes** affecting demand.  
+            
+            ### 🟢 Low Cancellations at the Beginning and End of the Year  
+            - The early months (**January, February**) and the end of the year (**December**) show a **lower number of cancellations**, which may indicate **booking stability** during these periods.  
+            
+            ### 🔄 A Gradual Increase Until Mid-Year  
+            - There is a **steady rise in cancellations from February to June**, which might be linked to **seasonal booking peaks or travel fluctuations**.  
+            """)
 
 
     elif visualization_option == "Feature Correlation Heatmap":
