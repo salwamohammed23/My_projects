@@ -49,14 +49,14 @@ labels_list = [
 @st.cache_resource
 def load_model_and_vocab():
     # تحميل المفردات (يفترض أنها محفوظة في ملف .pt أو dict)
-    vocab = torch.load("vocab.pt")  # أو استخدم نسخة hardcoded
+    vocab = torch.load("model/vocab.pt")  # أو استخدم نسخة hardcoded
     
     model = EmbeddingTextClassifier(
         vocab_size=len(vocab),
         embed_dim=100,
         num_classes=len(labels_list)
     )
-    model.load_state_dict(torch.load("embedding_text_classifier.pt", map_location="cpu"))
+    model.load_state_dict(torch.load("model/embedding_text_classifier.pt", map_location="cpu"))
     model.eval()
     return model, vocab
 
