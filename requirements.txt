@@ -7,3 +7,8 @@ matplotlib
 opencv-python-headless
 plotly
 seaborn
+
+torch
+numpy
+
+
