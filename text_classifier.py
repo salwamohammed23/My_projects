@@ -56,7 +56,7 @@ def load_model_and_vocab():
         embed_dim=100,
         num_classes=len(labels_list)
     )
-    model.load_state_dict(torch.load("model/embedding_text_classifier.pt", map_location="cpu"))
+    model.load_state_dict(torch.load("model/simple_text_classifier.pt", map_location="cpu"))
     model.eval()
     return model, vocab
 
