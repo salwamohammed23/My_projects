@@ -9,6 +9,6 @@ plotly
 seaborn
 
 torch
-numpy
+
 
 
