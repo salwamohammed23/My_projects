@@ -1,81 +1,48 @@
 import streamlit as st
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
+from peft import PeftModel
 import torch
-import torch.nn as nn
-import re
+import zipfile
+import os
 
-# ========== إعدادات النموذج ==========
+# 1. إعداد المسارات
+MODEL_ZIP = "toxic_classifier.zip"
+EXTRACT_DIR = "./models"
 
-# نفس تصميم الشبكة المستخدم سابقًا
-class EmbeddingTextClassifier(nn.Module):
-    def __init__(self, vocab_size, embed_dim, num_classes):
-        super(EmbeddingTextClassifier, self).__init__()
-        self.embedding = nn.Embedding(vocab_size, embed_dim, padding_idx=0)
-        self.fc1 = nn.Linear(embed_dim, 128)
-        self.relu = nn.ReLU()
-        self.dropout = nn.Dropout(0.3)
-        self.fc2 = nn.Linear(128, num_classes)
+# 2. فك الضغط (يتم مرة واحدة)
+if not os.path.exists(EXTRACT_DIR):
+    with zipfile.ZipFile(MODEL_ZIP, 'r') as zip_ref:
+        zip_ref.extractall(EXTRACT_DIR)
 
-    def forward(self, input_ids):
-        x = self.embedding(input_ids)
-        x = x.mean(dim=1)
-        x = self.fc1(x)
-        x = self.relu(x)
-        x = self.dropout(x)
-        x = self.fc2(x)
-        return x
-
-# ========== إعداد المفردات والتوكن ==========
-
-def simple_tokenizer(text):
-    text = text.lower()
-    text = re.sub(r"[^a-zA-Z0-9\s]", "", text)
-    return text.split()
-
-def encode_text(text, vocab, max_len=50):
-    tokens = simple_tokenizer(text)
-    ids = [vocab.get(token, vocab["<UNK>"]) for token in tokens]
-    ids = ids[:max_len] + [vocab["<PAD>"]] * (max_len - len(ids))
-    return torch.tensor([ids], dtype=torch.long)
-
-# ========== إعداد الفئات ==========
-
-labels_list = [
-    "Safe", "Violent Crimes", "Elections", "Sex-Related Crimes", "Unsafe",
-    "Non-Violent Crimes", "Child Sexual Exploitation", "Unknown S-Type", "Suicide & Self-Harm"
-]
-
-# ========== تحميل النموذج والمفردات ==========
-
-@st.cache_resource
-def load_model_and_vocab():
-    # تحميل المفردات (يفترض أنها محفوظة في ملف .pt أو dict)
-    vocab = torch.load("model/label_encoder.pt")  # أو استخدم نسخة hardcoded
+# 3. تحميل النموذج
+@st.cache_resource  # للتخزين المؤقت في Streamlit
+def load_model():
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     
-    model = EmbeddingTextClassifier(
-        vocab_size=len(vocab),
-        embed_dim=100,
-        num_classes=len(labels_list)
+    tokenizer = AutoTokenizer.from_pretrained(os.path.join(EXTRACT_DIR, "full_model"))
+    
+    model = AutoModelForSequenceClassification.from_pretrained(
+        os.path.join(EXTRACT_DIR, "full_model"),
+        device_map="auto"
     )
-    model.load_state_dict(torch.load("model/simple_text_classifier.pt", map_location="cpu"))
-    model.eval()
-    return model, vocab
+    return tokenizer, model
 
-model, vocab = load_model_and_vocab()
+# 4. واجهة Streamlit
+st.title("تصنيف النصوص السامة")
+text_input = st.text_area("أدخل النص هنا:")
 
-# ========== واجهة Streamlit ==========
-
-st.set_page_config(page_title="تصنيف المحتوى النصي", layout="centered")
-st.title("🧠 تصنيف النصوص إلى فئات السلامة")
-st.markdown("ادخل نصًا وسيقوم النموذج بتحديد الفئة المناسبة 👇")
-
-user_input = st.text_area("📝 أدخل نصًا للتصنيف", height=150)
-
-if st.button("🔍 صنف النص"):
-    if not user_input.strip():
-        st.warning("من فضلك أدخل نصًا قبل الضغط على زر التصنيف.")
-    else:
-        input_ids = encode_text(user_input, vocab)
+if st.button("صنّف"):
+    if text_input:
+        tokenizer, model = load_model()
+        
+        inputs = tokenizer(text_input, return_tensors="pt").to(model.device)
         with torch.no_grad():
-            output = model(input_ids)
-            predicted_class = torch.argmax(output, dim=1).item()
-            st.success(f"📌 الفئة المتوقعة: **{labels_list[predicted_class]}**")
+            outputs = model(**inputs)
+        
+        probs = torch.nn.functional.softmax(outputs.logits, dim=1)[0]
+        
+        st.subheader("النتائج:")
+        for i, prob in enumerate(probs):
+            st.progress(float(prob), text=f"{model.config.id2label[i]}: {prob*100:.2f}%")
+    else:
+        st.warning("الرجاء إدخال نص أولاً")
