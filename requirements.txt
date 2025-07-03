@@ -7,8 +7,9 @@ matplotlib
 opencv-python-headless
 plotly
 seaborn
-
+tensorflow
 torch
+pickle
 
 
 
