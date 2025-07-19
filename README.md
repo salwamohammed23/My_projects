@@ -5,6 +5,17 @@
 
 This application provides a user-friendly command-line interface for loading, preprocessing, exploring, and training machine learning models on structured datasets. Users can input a dataset, handle missing values, perform exploratory data analysis (EDA), and train models interactively.
 
+# Code Generation using RAG
+
+This project demonstrates a Retrieval-Augmented Generation (RAG) system for generating Python code using the Groq API and ChromaDB. The system retrieves similar code examples from a dataset and uses them as context to generate high-quality code snippets.
+
+ **Features**
+
+- **Embedding Generation**: Uses `all-MiniLM-L6-v2` to create vector representations of code prompts.
+- **Vector Storage**: Stores code examples and their embeddings in ChromaDB for efficient retrieval.
+- **Code Generation**: Leverages the Groq API (`deepseek-r1-distill-llama-70b`) to generate Python code based on user prompts and retrieved examples.
+- **Context-Aware**: Retrieves similar examples to guide the generation process.
+
 # Data Cleaning, Visualization
 
 This project provides a streamlined process for **Data Cleaning**, **Visualization**, and **Statistical Analysis** of a dataset, with a focus on improving data quality and extracting valuable insights through geographic and exploratory visualizations, as well as statistical summaries.
