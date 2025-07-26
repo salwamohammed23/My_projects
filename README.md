@@ -16,6 +16,11 @@ This project demonstrates a Retrieval-Augmented Generation (RAG) system for gene
 - **Code Generation**: Leverages the Groq API (`deepseek-r1-distill-llama-70b`) to generate Python code based on user prompts and retrieved examples.
 - **Context-Aware**: Retrieves similar examples to guide the generation process.
 
+
+# Face Detection Project
+
+This project demonstrates face detection in videos using the MTCNN (Multi-task Cascaded Convolutional Networks) model from the `facenet-pytorch` library. The workflow includes downloading a YouTube video, processing it to detect faces, and visualizing the results.
+
 # Data Cleaning, Visualization
 
 This project provides a streamlined process for **Data Cleaning**, **Visualization**, and **Statistical Analysis** of a dataset, with a focus on improving data quality and extracting valuable insights through geographic and exploratory visualizations, as well as statistical summaries.
