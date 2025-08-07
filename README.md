@@ -7,15 +7,15 @@ This application provides a user-friendly command-line interface for loading, pr
 
 # Code Generation using RAG
 
-This project demonstrates a Retrieval-Augmented Generation (RAG) system for generating Python code using the Groq API and ChromaDB. The system retrieves similar code examples from a dataset and uses them as context to generate high-quality code snippets.
+**LangGraph-Powered Python Code Assistant** is an intelligent, interactive assistant designed to analyze, explain, and improve Python code using AI models.
+The project leverages **LangGraph** for stateful conversational logic, **Gradio** for a user-friendly web interface, and **ChromaDB** for semantic code search, with support from **Groq** models to generate smart responses.
 
- **Features**
+This assistant helps developers to:
 
-- **Embedding Generation**: Uses `all-MiniLM-L6-v2` to create vector representations of code prompts.
-- **Vector Storage**: Stores code examples and their embeddings in ChromaDB for efficient retrieval.
-- **Code Generation**: Leverages the Groq API (`deepseek-r1-distill-llama-70b`) to generate Python code based on user prompts and retrieved examples.
-- **Context-Aware**: Retrieves similar examples to guide the generation process.
-
+* Analyze and debug code.
+* Provide context-aware explanations.
+* Execute and test code directly.
+* Interact via an AI-driven interface.
 
 # Face Detection Project
 
