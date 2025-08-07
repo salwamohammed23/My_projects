@@ -3,7 +3,9 @@
 ````markdown
 # 🧠 LangGraph-Powered Python Code Assistant
 
-A smart, interactive Python code assistant built with [LangGraph](https://github.com/langchain-ai/langgraph), [Gradio](https://gradio.app), [ChromaDB](https://www.trychroma.com/), and [Groq API](https://groq.com/). This notebook enables code execution, explanation, and debugging through a conversational interface enhanced by vector search and stateful graph reasoning.
+A smart, interactive Python code assistant built with [LangGraph](https://github.com/langchain-ai/langgraph), [Gradio]
+(https://gradio.app), [ChromaDB](https://www.trychroma.com/), and [Groq API](https://groq.com/). This notebook enables code execution,
+explanation, and debugging through a conversational interface enhanced by vector search and stateful graph reasoning.
 
 ---
 
