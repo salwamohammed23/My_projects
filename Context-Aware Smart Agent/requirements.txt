@@ -1,0 +1,3 @@
+
+langchain langchain-community gradio python-dotenv
+groq
