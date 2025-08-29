@@ -1,3 +1,5 @@
-
-langchain langchain-community gradio python-dotenv
+langchain
+langchain-community
+gradio
+python-dotenv
 groq
