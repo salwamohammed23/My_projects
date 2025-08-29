@@ -1,5 +1,3 @@
-I'll add the Hugging Face Spaces link to your README.md file.
-
 ```markdown
 # 🤖 Context-Aware Smart Agent
 
