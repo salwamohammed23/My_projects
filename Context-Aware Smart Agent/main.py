@@ -7,8 +7,6 @@ Original file is located at
     https://colab.research.google.com/drive/1zrqp56QXy-rRJtCXU_zSc6EPd1rgBg9l
 """
 
-!pip install langchain langchain-community gradio python-dotenv
-!pip install groq
 
 from ui.gradio_ui import interface
 from dotenv import load_dotenv
