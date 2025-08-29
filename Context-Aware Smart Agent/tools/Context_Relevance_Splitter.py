@@ -1,7 +1,7 @@
 from typing import Union, Dict
 from langchain.tools import Tool
 
-from llms.llm import llm
+from llm import llm
 
 # --- Enhanced Context Processing Tool ---
 def Context_Relevance_Splitter(input_text: str) -> Union[str, Dict[str, str]]:
