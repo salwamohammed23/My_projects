@@ -1,7 +1,7 @@
 from langchain.tools import Tool
 from typing import Any
 
-from llm import llm
+from llms.llm import llm
 # --- Context Presence Judge Tool ---
 def build_context_presence_tool(llm: Any, prompt_path: str) -> Tool:
     """
