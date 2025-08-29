@@ -4,6 +4,14 @@
 An intelligent agent system that understands and processes user queries with optional contextual information. Built with LangChain,
 Groq API, and Gradio, this system can extract answers from provided context or perform web searches when needed.
 **Live Demo**: Try the application on [Hugging Face Spaces](https://huggingface.co/spaces/SalwaM/Context-Aware_Smart_Agent)
+**✨ Features**
+
+- **Contextual Understanding**: Process questions with additional context using the `||` separator
+- **Intelligent Answer Extraction**: Attempt to extract answers directly from provided context
+- **Web Search Integration**: Fall back to real-time web searches using Tavily API when context is insufficient
+- **Multi-language Support**: Handles both Arabic and English queries seamlessly
+- **User-Friendly Interface**: Clean Gradio web interface with interactive examples
+- **Error Handling**: Robust error handling for API failures and malformed inputs
 
 # Machine Learning Data Preprocessing and Training Application
 
