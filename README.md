@@ -1,5 +1,9 @@
 # My_projects
+# 🤖 Context-Aware Smart Agent
 
+An intelligent agent system that understands and processes user queries with optional contextual information. Built with LangChain,
+Groq API, and Gradio, this system can extract answers from provided context or perform web searches when needed.
+**Live Demo**: Try the application on [Hugging Face Spaces](https://huggingface.co/spaces/SalwaM/Context-Aware_Smart_Agent)
 
 # Machine Learning Data Preprocessing and Training Application
 
