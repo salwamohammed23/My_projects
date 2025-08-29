@@ -1,6 +1,6 @@
 import gradio as gr
 
-from agent.agent import run_agent
+from agent.agent_runner import run_agent
 
 # --- Enhanced Gradio Interface ---
 interface = gr.Interface(
