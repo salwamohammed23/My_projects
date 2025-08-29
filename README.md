@@ -21,6 +21,7 @@ This application provides a user-friendly command-line interface for loading, pr
 
 **LangGraph-Powered Python Code Assistant** is an intelligent, interactive assistant designed to analyze, explain, and improve Python code using AI models.
 The project leverages **LangGraph** for stateful conversational logic, **Gradio** for a user-friendly web interface, and **ChromaDB** for semantic code search, with support from **Groq** models to generate smart responses.
+- **Live Demo**: Try the application on [Hugging Face Spaces](https://huggingface.co/spaces/SalwaM/Powered_Python_Code_Assistant)
 
 This assistant helps developers to:
 
