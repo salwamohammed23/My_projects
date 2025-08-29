@@ -2,7 +2,7 @@ from langchain.llms.base import LLM
 from pydantic import PrivateAttr
 from groq import Groq
 from typing import Optional, List
-from passwords.env import api_key_coder
+from api..env import api_key_coder
 
 # --- Setup api
 #from google.colab import userdata
