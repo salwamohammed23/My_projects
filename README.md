@@ -12,6 +12,23 @@ Groq API, and Gradio, this system can extract answers from provided context or p
 - **Multi-language Support**: Handles both Arabic and English queries seamlessly
 - **User-Friendly Interface**: Clean Gradio web interface with interactive examples
 - **Error Handling**: Robust error handling for API failures and malformed inputs
+  
+
+# 📚 PDF Research Assistant
+
+A research assistant application that allows users to upload PDF files and ask questions about their content.
+The system extracts text from the PDF, splits it into chunks, generates embeddings, stores them in a Chroma database,
+and uses Groq's language model to answer questions based on the document.
+- **Live Demo**: Try the application on [Hugging Face Spaces](https://huggingface.co/spaces/SalwaM/PDF_Research_Assistant)
+- **✨ Features**
+- Upload PDF files (supports scanned PDFs if OCR is applied externally).
+- Ask questions related to the PDF content.
+- Provides concise, context-based answers.
+- Returns bullet points and references when appropriate.
+- Supports **English** and **Arabic** interfaces.
+- Uses semantic search for relevant document retrieval with `ChromaDB`.
+- Powered by `SentenceTransformer` embeddings and `Groq` LLM for question answering.
+
 
 # Machine Learning Data Preprocessing and Training Application
 
