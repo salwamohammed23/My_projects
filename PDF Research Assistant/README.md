@@ -1,6 +1,10 @@
 ````markdown
 # 📚 PDF Research Assistant
+### **Live Demo:**
 
+Try it online: [Hugging Face Demo](https://huggingface.co/spaces/SalwaM/PDF_Research_Assistant)
+
+---
 A research assistant application that allows users to upload PDF files and ask questions about their content.
 The system extracts text from the PDF, splits it into chunks, generates embeddings, stores them in a Chroma database,
 and uses Groq's language model to answer questions based on the document.
