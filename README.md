@@ -4,7 +4,7 @@
 An intelligent agent system that understands and processes user queries with optional contextual information. Built with LangChain,
 Groq API, and Gradio, this system can extract answers from provided context or perform web searches when needed.
 - **Live Demo**: Try the application on [Hugging Face Spaces](https://huggingface.co/spaces/SalwaM/Context-Aware_Smart_Agent)
-- **✨ Features**
+ **✨ Features**
 
 - **Contextual Understanding**: Process questions with additional context using the `||` separator
 - **Intelligent Answer Extraction**: Attempt to extract answers directly from provided context
@@ -20,7 +20,7 @@ A research assistant application that allows users to upload PDF files and ask q
 The system extracts text from the PDF, splits it into chunks, generates embeddings, stores them in a Chroma database,
 and uses Groq's language model to answer questions based on the document.
 - **Live Demo**: Try the application on [Hugging Face Spaces](https://huggingface.co/spaces/SalwaM/PDF_Research_Assistant)
-- **✨ Features**
+ **✨ Features**
 - Upload PDF files (supports scanned PDFs if OCR is applied externally).
 - Ask questions related to the PDF content.
 - Provides concise, context-based answers.
