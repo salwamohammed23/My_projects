@@ -1,0 +1,9 @@
+gradio 
+chromadb 
+sentence-transformers 
+langgraph 
+langchain-text-splitters 
+pypdf 
+groq
+pdfplumber
+PyPDF2
