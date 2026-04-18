@@ -1,1 +1,72 @@
+version: '3.8'
 
+services:
+  orchestrator:
+    build:
+      context: ./orchestrator
+      dockerfile: Dockerfile
+    ports:
+      - "7860:7860"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./shared:/shared
+    environment:
+      - DOCKER_HOST=unix:///var/run/docker.sock
+      - GROQ_API_KEY=${GROQ_API_KEY}
+    env_file:
+      - .env
+    networks:
+      - qa-network
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 2G
+
+  runner-python:
+    build: ./runners/python
+    image: qa-runner-python:latest
+    networks:
+      - qa-network
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+
+  runner-javascript:
+    build: ./runners/javascript
+    image: qa-runner-js:latest
+    networks:
+      - qa-network
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+
+  runner-java:
+    build: ./runners/java
+    image: qa-runner-java:latest
+    networks:
+      - qa-network
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 1G
+
+  runner-csharp:
+    build: ./runners/csharp
+    image: qa-runner-csharp:latest
+    networks:
+      - qa-network
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+
+networks:
+  qa-network:
+    driver: bridge
