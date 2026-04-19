@@ -122,7 +122,7 @@ Output ONLY the data, no explanations.
         return self.llm.invoke(prompt)
 
 synthetic_generator = SyntheticDataGenerator(llm)
-################
+##################
 class KnowledgeInput:
     def __init__(self, requirements=None, dom=None, api_spec=None, user_flows=None, source_code=None, recording=None):
         self.requirements = requirements
